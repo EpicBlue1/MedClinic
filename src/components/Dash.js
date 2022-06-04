@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useState, useRef, useEffect } from "react";
+import UpdateSec from './UpdateSec';
+import AppSections from './AppointmentsSec'
 
 const Dash = (props) => {
 
@@ -9,6 +11,11 @@ const Dash = (props) => {
         <>
             {props.navBar}
             {props.toolBar}
+            {props.timeSection}
+            <Row>
+                <AppSections/>
+                <UpdateSec/>
+            </Row>
         </>
 
     );

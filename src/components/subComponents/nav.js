@@ -7,16 +7,16 @@ const NavBar = () => {
 
     return (
         <Row>
-            <Col className="NavItemOne" xs={1} md={1}>
+            <Col className="NavItemOne" xs={2} md={1}>
                 <div className="navImg"></div>
             </Col>
-            <Col className="NavItemTwo" xs={{span:3, offset: 2}} md={{span:3, offset: 0}}>Home</Col>
+            <Col className="NavItemTwo" xs={{span:3, offset: 1}} md={{span:3, offset: 0}}>Home</Col>
             <Col className="NavItem" xs={3} md={3}>Doctors</Col>
             <Col className="NavItem" xs={3} md={3}>Bookings</Col>
             <Col className="NavItemFour" xs={{span:8, offset: 4}} md={{span:2, offset: 0}}>
                 <Row>
                     <Col className="UserInfo" xs={3} md={4}>                
-                        <div className="navImg bg"></div>
+                        <div className="PImage bg"></div>
                     </Col>
                     <Col className="UserInfoName" xs={9} md={8}>
                         <h3>Username</h3>

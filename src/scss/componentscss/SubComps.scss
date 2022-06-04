@@ -1,22 +1,39 @@
+//universal Controls Mobile
+@mixin NavHeightDesk {
+    height: 65px !important;
+  }
+
+@mixin NavPadDesk {
+    padding-top: 20px;
+  }
+
+@mixin NavHeightMob {
+    height: 50px !important;
+    padding-top: 12px;
+  }
+
 //Navigation
-.NavItem{
-    padding-top: 25px;
-    height: 75px !important;
+    .NavItem{
+    cursor: pointer;
+    @include NavPadDesk;
+    @include NavHeightDesk;
     text-align: center !important;
     box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
     background-color: white !important;
   }
   
   .NavItemOne{
-    height: 75px !important;
+    cursor: pointer;
+    @include NavHeightDesk;
     background-color: #0349C2 !important;
     border-bottom-right-radius: 25px;
     box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
   }
   
   .NavItemTwo{
-    padding-top: 25px;
-    height: 75px !important;
+    cursor: pointer;
+    @include NavPadDesk;
+    @include NavHeightDesk;
     text-align: center !important;
     border-bottom-left-radius: 25px;
     box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
@@ -24,7 +41,7 @@
   }
   
   .NavItemFour{
-    height: 75px !important;
+    @include NavHeightDesk;
     text-align: center !important;
     border-bottom-right-radius: 25px;
     box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
@@ -39,23 +56,29 @@
     background-position: center center !important;
     background-repeat: no-repeat !important;
     background-image: url(../../img/Logo.png);
-    border-radius: 55px;
+  }
+
+  .PImage{
+    margin: 0 auto !important;
+    width: 90% !important;
+    height: 90% !important;
+    background-size: 100%;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-image: url(../../img/DocterImgtemp.jpg);
+    border-radius: 15px;
   }
   
   .UserInfo{
     padding-top: 6px !important;
     padding-bottom: 6px !important;
-    height: 75px !important;
+    @include NavHeightDesk;
   }
   
   .UserInfoName{
     padding-top: 10px !important;
     padding-bottom: 6px !important;
-    height: 75px !important;
-  }
-  
-  .bg{
-    background-color: red !important;
+    @include NavHeightDesk;
   }
 
   //Toolbar
@@ -77,13 +100,17 @@
     width: 20% !important;
     height: 40px;
     border: none;
+    background-color: $color_black
   }
 
   .AddApp {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding-top: 2%;
     border: none;
     float: right;
-    width: 50% !important;
+    width: 60% !important;
     height: 40px !important;
     background-color: white;
     background-color: $secondary_greenish;
@@ -91,27 +118,42 @@
     color: white !important;
   }
 
-  //universal Controls Mobile
-  @mixin NavHeightMob {
-    height: 50px !important;
-    padding-top: 12px;
+  .SearchIcon{
+      background-image: url(../../img/SearchIcon.svg);
+      width: 32px;
+      height: 32px;
+      background-size: cover;
+      border: none !important;
+  }
+
+  .TimeStamp{
+      cursor: pointer;
+      width: 100px;
+      height: 35px;
+      background-color: white;
+      margin-right: 10px;
+      margin-top: 5px;
+      text-align: center;
+      padding-top: 3px;
   }
   
-  
   //media queries
-  @media (max-width: 480px) {
+    @media (max-width: 480px) {
 .NavItem{
     @include NavHeightMob;
     }
+
 .NavItemOne{
     @include NavHeightMob;
     }
+
 .NavItemTwo{
     @include NavHeightMob;
     text-align: center !important;
     border-bottom-left-radius: 25px;
     box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1)
 }
+
 .NavItemFour{
     border-top: 0.15px solid black;
     @include NavHeightMob;
@@ -120,6 +162,7 @@
     border-bottom-left-radius: 25px;
     box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1)
     }
+
 .navImg{
       margin: 0 auto !important;
       width: 100% !important;
@@ -130,19 +173,23 @@
       background-image: url(../../img/Logo.png);
       border-radius: 55px;
     }
+
 .UserInfo{
       padding-top: 6px !important;
       padding-bottom: 6px !important;
       height: 45px !important;
     }
+
 .UserInfoName{
       padding-top: 2px !important;
       padding-bottom: 6px !important;
       height: 45px !important;
     }
+
 h2{
       font-size: 18px !important;
     }
+
 .Searchbar{
         float: left;
         border-bottom-left-radius: 10px;
@@ -162,13 +209,12 @@ h2{
     height: 40px;
     border: none;
   }
+
 .AddApp {
         margin-top: 15px !important;
         padding-top: 2%;
         width: 100% !important;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+
         background-color: $secondary_greenish;
     }
     

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { useState, useRef, useEffect } from "react";
 import Searchbar from './searchbar'
 
-const NavBar = (props) => {
+const ToolSec = (props) => {
 
     return (
         <>
@@ -20,4 +20,4 @@ const NavBar = (props) => {
     );
 };
 
-export default NavBar;
+export default ToolSec;

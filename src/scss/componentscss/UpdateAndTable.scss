@@ -1,0 +1,79 @@
+.UpdateSection{
+    height: 80vh;
+    background-color: $color_gray;
+    margin-bottom: 5vh;
+}
+
+.AppTable{
+    height: 80vh;
+    margin-bottom: 5vh;
+}
+
+.PatientCard{
+    height: 45px;
+    background-color: white;
+  }
+  
+.RemoveBut{
+    margin-right: 6px !important;
+    width: 10%;
+    height: 34px;
+    border: none;
+    float: right;
+    background-image: url(../../img/editBut.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.Heading{
+    padding-top: 2vh;
+    text-align: center;
+    height: 7vh; 
+}
+
+.Messages{
+    padding-top: 10px;
+    text-align: center;
+    height: 63vh;
+    background-color: aqua;
+}
+
+.TypeNSend{
+    height: 10vh;
+    background-color: orange;
+}
+
+@media (max-width: 480px) {
+
+    .UpdateSection{
+        height: 50vh;
+        background-color: $color_gray;
+        margin-bottom: 5vh;
+    }
+    
+    .AppTable{
+        height: 50vh;
+        margin-bottom: 5vh;
+    }
+
+    .Heading{
+        padding-top: 2vh;
+        text-align: center;
+        height: 7vh; 
+    }
+    
+    .Messages{
+        padding-top: 10px;
+        text-align: center;
+        height: 36vh;
+        background-color: aqua;
+    }
+    
+    .TypeNSend{
+        height: 7vh;
+        background-color: orange;
+    }
+
+}

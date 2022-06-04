@@ -7,7 +7,7 @@ const Search = (props) => {
     return (
         <>
             <input className="Searchbar"/>
-            <button className="SearchButton"></button>
+            <button className="SearchButton"><img className="SearchIcon"/></button>
         </>
 
 
