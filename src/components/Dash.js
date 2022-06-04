@@ -14,6 +14,7 @@ const Dash = (props) => {
             {props.timeSection}
             <Row>
                 <AppSections/>
+                <Col md={1}></Col>
                 <UpdateSec/>
             </Row>
         </>
