@@ -1,0 +1,46 @@
+//background-images
+@mixin background_images {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+//Headings and text
+@mixin heading_one {
+    font-size: 40px !important;
+    font-weight: 750 !important;
+  }
+
+@mixin heading_twoBold {
+    font-size: 28px !important;
+    font-weight: 650 !important;
+  }
+
+@mixin heading_two {
+    font-size: 28px !important;
+  }
+
+@mixin heading_three {
+    font-size: 18px !important;
+  }
+
+@mixin heading_four {
+  font-size: 12px !important;
+  color: #6b6b6b;
+  height: 6px;
+}
+
+@mixin paragraph {
+    font-size: 18px !important;
+    font-weight: 400 !important;
+  }
+
+//uniform border radiuses
+
+@mixin borders{
+    border-radius: 10px;
+  }
+
+@mixin shadow{
+  box-shadow: 2px 2px 2px 0px rgba(0, 0, 0, 0.1);
+}

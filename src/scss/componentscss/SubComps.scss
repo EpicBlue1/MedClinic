@@ -1,0 +1,175 @@
+//Navigation
+.NavItem{
+    padding-top: 25px;
+    height: 75px !important;
+    text-align: center !important;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
+    background-color: white !important;
+  }
+  
+  .NavItemOne{
+    height: 75px !important;
+    background-color: #0349C2 !important;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
+  }
+  
+  .NavItemTwo{
+    padding-top: 25px;
+    height: 75px !important;
+    text-align: center !important;
+    border-bottom-left-radius: 25px;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
+    background-color: white !important;
+  }
+  
+  .NavItemFour{
+    height: 75px !important;
+    text-align: center !important;
+    border-bottom-right-radius: 25px;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
+    background-color: white !important;
+  }
+  
+  .navImg{
+    margin: 0 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    background-size: 75%;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+    background-image: url(../../img/Logo.png);
+    border-radius: 55px;
+  }
+  
+  .UserInfo{
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    height: 75px !important;
+  }
+  
+  .UserInfoName{
+    padding-top: 10px !important;
+    padding-bottom: 6px !important;
+    height: 75px !important;
+  }
+  
+  .bg{
+    background-color: red !important;
+  }
+
+  //Toolbar
+  .Searchbar{
+    float: left;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    font-size: 14px !important;
+    width: 70% !important;
+    height: 40px;
+    padding-left: 2%;
+  }
+
+  .SearchButton{
+    float: left;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 14px !important;
+    width: 20% !important;
+    height: 40px;
+    border: none;
+  }
+
+  .AddApp {
+    padding-top: 2%;
+    border: none;
+    float: right;
+    width: 50% !important;
+    height: 40px !important;
+    background-color: white;
+    background-color: $secondary_greenish;
+    font-weight: bold !important;
+    color: white !important;
+  }
+
+  //universal Controls Mobile
+  @mixin NavHeightMob {
+    height: 50px !important;
+    padding-top: 12px;
+  }
+  
+  
+  //media queries
+  @media (max-width: 480px) {
+.NavItem{
+    @include NavHeightMob;
+    }
+.NavItemOne{
+    @include NavHeightMob;
+    }
+.NavItemTwo{
+    @include NavHeightMob;
+    text-align: center !important;
+    border-bottom-left-radius: 25px;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1)
+}
+.NavItemFour{
+    border-top: 0.15px solid black;
+    @include NavHeightMob;
+    padding-top: 0px !important;
+    text-align: center !important;
+    border-bottom-left-radius: 25px;
+    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1)
+    }
+.navImg{
+      margin: 0 auto !important;
+      width: 100% !important;
+      height: 100% !important;
+      background-size: cover;
+      background-position: center center !important;
+      background-repeat: no-repeat !important;
+      background-image: url(../../img/Logo.png);
+      border-radius: 55px;
+    }
+.UserInfo{
+      padding-top: 6px !important;
+      padding-bottom: 6px !important;
+      height: 45px !important;
+    }
+.UserInfoName{
+      padding-top: 2px !important;
+      padding-bottom: 6px !important;
+      height: 45px !important;
+    }
+h2{
+      font-size: 18px !important;
+    }
+.Searchbar{
+        float: left;
+        border-bottom-left-radius: 10px;
+        border-top-left-radius: 10px;
+        font-size: 14px !important;
+        width: 80% !important;
+        height: 40px;
+        padding-left: 2%;
+    }
+
+.SearchButton{
+    float: left;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 14px !important;
+    width: 20% !important;
+    height: 40px;
+    border: none;
+  }
+.AddApp {
+        margin-top: 15px !important;
+        padding-top: 2%;
+        width: 100% !important;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        background-color: $secondary_greenish;
+    }
+    
+}

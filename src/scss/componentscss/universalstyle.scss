@@ -1,0 +1,74 @@
+Container{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+Row{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+input{
+  border: none;
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  @include paragraph; 
+}
+
+img{
+  border: none !important;
+}
+
+h1{
+  @include heading_one;
+}
+
+h2{
+  @include heading_twoBold;
+}
+
+h3{
+  @include heading_three;
+}
+
+h4{
+  @include heading_four;
+}
+
+p{
+  @include paragraph;  
+}
+
+li{
+  @include paragraph;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.borderRad{
+  @include borders;
+}
+
+.shadow{
+  @include shadow;
+}
+
+.overflow{
+  height: 98%;
+  overflow-y: auto;
+}
+
+.Inline{
+  display: inline-block;
+}
+
+a{
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.displayInline{
+  display: inline-block;
+}
+
+
+

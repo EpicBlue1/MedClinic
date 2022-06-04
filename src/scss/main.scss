@@ -1,0 +1,12 @@
+//Single output for all scss files in
+
+//Tools
+@import 'Tools/variables.scss'; //mostly colors
+@import 'Tools/mixins.scss'; //preset styling
+
+//Set styling
+@import 'componentscss/universalstyle.scss'; //preset styling
+@import 'componentscss/landing.scss'; //landing page styling
+@import 'componentscss//SubComps.scss'; //landing page styling
+
+
