@@ -7,7 +7,9 @@
 //Set styling
 @import 'componentscss/universalstyle.scss'; //preset styling
 @import 'componentscss/landing.scss'; //landing page styling
-@import 'componentscss/SubComps.scss'; //landing page styling
-@import 'componentscss/UpdateAndTable.scss'; //landing page styling
+@import 'componentscss/SubComps.scss'; //Most of the styling for sub-components (Nav, Search, etc.)
+@import 'componentscss/UpdateAndTable.scss'; //Updates and appointment tables 
+@import 'componentscss/CardDisp.scss'; //Doctors and patient cards
+@import 'componentscss/LogInNReg.scss'; //Doctors and patient cards
 
 

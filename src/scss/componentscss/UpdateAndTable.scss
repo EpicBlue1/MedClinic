@@ -16,14 +16,14 @@
   }
   
 .RemoveBut{
-    margin-right: 6px !important;
+    margin-right: 15px !important;
     width: 10%;
     height: 34px;
     border: none;
     float: right;
-    background-image: url(../../img/editBut.svg);
+    background-image: url(../../img/editBut.png);
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
     background-color: white;
 }

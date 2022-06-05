@@ -2,7 +2,8 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useState, useRef, useEffect } from "react";
 import UpdateSec from './UpdateSec';
-import AppSections from './AppointmentsSec'
+import AppSections from './AppointmentsSec';
+import Toolbar from './subComponents/toolSec';
 
 const Dash = (props) => {
 
@@ -10,7 +11,7 @@ const Dash = (props) => {
 
         <>
             {props.navBar}
-            {props.toolBar}
+            <Toolbar addButName = "Add Appointment" pageName = "Appointments"/>
             {props.timeSection}
             <Row>
                 <AppSections/>

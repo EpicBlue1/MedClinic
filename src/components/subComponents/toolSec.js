@@ -10,9 +10,9 @@ const ToolSec = (props) => {
         <>
         <br></br>
         <Row>
-            <Col xs={12} md={3}><h2>Appointments</h2></Col>
+            <Col xs={12} md={3}><h2>{props.pageName}</h2></Col>
             <Col xs={12} md={6}><h2><Searchbar/></h2></Col>
-            <Col xs={12} md={3}><button className="AddApp borderRad shadow"><p>Add Appointment</p></button></Col>
+            <Col xs={12} md={3}><button className="AddApp borderRad shadow"><p>{props.addButName}</p></button></Col>
         </Row>
         <hr></hr>
         </>
