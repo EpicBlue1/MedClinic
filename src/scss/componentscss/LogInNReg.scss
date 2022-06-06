@@ -1,13 +1,13 @@
 .LogIn{
     margin-top: 18vh !important;
-    height: 55vh;
+    height: 400px;
     transition: all ease-in-out 250ms;
     background-color: white;
 }
 
 .LogIn-change{
-    margin-top: 10vh !important;
-    height: 78vh;
+    margin-top: 2vh !important;
+    height: 670px;
 }
 
 .show{
@@ -53,13 +53,13 @@
 }
 
 .LogButton{
-    padding-top: 4px;
+    padding-top: 3px;
     background-color: $primary_blue;
     height: 35px;
     color: white;
     margin: 0 auto !important;
     width: 50% !important;
-    margin-top: 35px !important;
+    margin-top: 20px !important;
     border: none; 
 }
 
@@ -71,6 +71,7 @@
     margin: 0 auto !important;
     width: 50% !important;
     margin-top: 35px !important;
-    border: none; 
+    border: none;
+    transition: all ease-in-out 250ms;
 }
   
