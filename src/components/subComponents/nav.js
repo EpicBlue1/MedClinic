@@ -2,8 +2,17 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import { useState, useRef, useEffect } from "react";
+import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
+
+    const navigate = useNavigate();
+
+    const Logout = () =>{
+    // sessionStorage.setItem('activeUser')
+    sessionStorage.clear();
+    navigate('/LoginAndReg');
+  }
 
     return (
         <>
@@ -27,7 +36,7 @@ const NavBar = () => {
             </Col>
         </Row>
         <Row>
-            <Col className="NavItemFive" xs={{span:4, offset: 7}} md={{span:1, offset: 10}}><p><b>Log Out</b></p></Col>
+            <Col onClick={Logout} className="NavItemFive" xs={{span:4, offset: 7}} md={{span:1, offset: 10}}><p><b>Log Out</b></p></Col>
         </Row>
         </>
 

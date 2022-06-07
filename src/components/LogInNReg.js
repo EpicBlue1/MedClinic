@@ -19,120 +19,137 @@ const Patients = (props) => {
     //Register Functionality
     const navigate = useNavigate();
 
-    const [inputs, setInputs] = useState({
+    //user data
+    const [inputs, setInputs]= useState({
         first: '',
         last: '',
         email: '',
-        username: '', 
+        username: '',
         contact: '',
         password: '',
         passwordCon: '',
     });
 
-    const [firstnameError, setfirstnameError] = useState();
-    const [lastnameError, setlastnameError] = useState();
-    const [emailError, setEmailError] = useState();
+    //error handling (error messages)
+    const [firstNameError, setNameError] = useState();
+    const [lastNameError, setLastError]  = useState();
+    const [emailError, setEmailError] =  useState();
     const [usernameError, setUsernameError] = useState();
     const [contactError, setContactError] = useState();
     const [passwordError, setPasswordError] = useState();
     const [passwordConError, setPasswordConError] = useState();
 
+    //check user availability
     const [emailAvail, setEmailAvail] = useState();
     const [userAvail, setUserAvail] = useState();
 
+    //triggers icon based on availability
     const [emailIcon, setEmailIcon] = useState();
     const [userIcon, setUserIcon] = useState();
 
     const firstVal = (e) => {
         const value = e.target.value;
         setInputs({...inputs, first: value});
-        if(inputs.first !== ''){setfirstnameError();} 
+        if(inputs.first !== ''){setNameError();}
     }
 
     const lastVal = (e) => {
         const value = e.target.value;
-        setInputs({...inputs, first: value});
-        if(inputs.first !== ''){setlastnameError();} 
+        setInputs({...inputs, last: value});
+        if(inputs.last !== ''){setLastError();}
     }
 
+    //email validation (onChange)
     const emailVal = (e) => {
-        const mailcodex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const mailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         const value = e.target.value;
         setInputs({...inputs, email: value});
-        if(inputs.email !== ''){
-            setEmailError();
-        } 
-        if(!value.match(mailcodex)){
-            setEmailError(<ErrorTopReg message="Email is not a valid format" />);
-        }    
+        if(inputs.email !== ''){setEmailError();}
+        if(!value.match(mailRegex)){
+            setEmailError(<ErrorTopReg message='Email is not valid format'/>);
+        }
     }
 
-    const validateEmail = () => {
+    //email authenticate 
+    const authEmail = (e) => {
         axios.post('http://localhost/MedClinic_TermTwo/authenticateEmail.php', inputs)
-        .then(function(response){
-         console.log(response);
-         if(response.data === "Available"){
-            setEmailIcon(CrossIcons);
-            setEmailAvail();
-         } else if(response.data === "Not Available") {
-            setEmailAvail(<ErrorTopReg message="Email Is Not Available" />);
-            setEmailIcon(CrossIcons);
-         } else if(response.data === "") {
-            setEmailIcon();
-            setEmailAvail();
-            setEmailError();
-         }
-        });
+        .then(function(response) {
+            console.log(response);
+            if(response.data === 'Available'){
+                //add tick
+                setEmailIcon(CrossIcons);
+                setEmailAvail();
+            } else if(response.data === 'Not Available'){
+                //dont show tick
+                setEmailIcon(CrossIcons);
+                setEmailAvail(<ErrorTopReg message='Email is not available'/>);
+            } else if(response.data === ''){
+                setEmailIcon();
+                setEmailAvail();
+                setEmailError();
+            }
+        })
     }
 
     const usernameVal = (e) => {
         const value = e.target.value.trim();
         setInputs({...inputs, username: value});
-        if(inputs.username != ''){setUsernameError();} 
+        if(inputs.username !== ''){setUsernameError();}
     }
 
-    const validateUser = () => {
+    //username authenticate 
+    const authUser = () => {
         axios.post('http://localhost/MedClinic_TermTwo/authenticateUser.php', inputs)
-        .then(function(response){
-         console.log(response);
-         if(response.data === "Available"){
-            setUserAvail();
-            setUserIcon(CrossIcons);
-         } else {
-            setUserAvail(<ErrorTopReg message="Username Is Not Available" />);
-            setUserIcon(CrossIcons);
-         }
-        });
+        .then(function(response) {
+            console.log(response);
+            if(response.data === 'Available'){
+                //add tick
+                setUserIcon(CrossIcons);
+                setUserAvail();
+            } else if(response.data === 'Not Available'){
+                //dont show tick
+                setUserIcon(CrossIcons);
+                setUserAvail(<ErrorTopReg message='Username is not available'/>);
+            } else if(response.data === ''){
+                setUserIcon();
+                setUserAvail();
+                setUsernameError();
+            }
+        })
     }
 
+    //contact validation (onChange)
     const contactVal = (e) => {
-        const contCodex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
+        const contRegex = /^\(?(\d{3})\)?[- ]?(\d{3})[- ]?(\d{4})$/;
         const value = e.target.value;
         setInputs({...inputs, contact: value});
-        if(inputs.contact != ''){setContactError();} 
-
-        if(!value.match(contCodex)){
-            setContactError(<ErrorTopReg message="Not a Valid Phone Number" />);
-        } 
-    }
-
+        if(inputs.contact !== ''){setContactError();}
+        if(!value.match(contRegex)){
+            setContactError(<ErrorTopReg message='This is not a phone number'/>);
+        }
+    }   
+    
+    //password validation (onChange)
     const passwordVal = (e) => {
-        const passCodex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{5,}$/ ;
+        const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{5,}$/ ;
         const value = e.target.value;
         setInputs({...inputs, password: value});
-        if(inputs.password != ''){setPasswordError();} 
+        if(inputs.password !== ''){setPasswordError();}
+        if(!value.match(passRegex)){
+            setPasswordError(<ErrorTopReg message='Password must include X, Y, or Z characters'/>);
+        }
+    } 
 
-        if(!value.match(passCodex)){
-            setPasswordError(<ErrorTopReg message="Password must include stuff" />);
-        } 
-    }
-
+    //password confirmation validation (onChange)
     const passwordConVal = (e) => {
+        // const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{5,}$/ ;
         const value = e.target.value;
         setInputs({...inputs, passwordCon: value});
-        if(inputs.password === value){setPasswordConError()}else{
-            setPasswordConError(<ErrorTopReg message="Your Passwords Dont Match" />);
-        }  
+        if(inputs.password=== value){
+            setPasswordConError();
+        } else {
+            setPasswordConError(<ErrorTopReg message='Your password does not match'/>);            
+        }
     }
 
     const handleSubmit = (e) => {
@@ -140,64 +157,100 @@ const Patients = (props) => {
         console.log(inputs);
 
         if(inputs.first === ''){
-            setfirstnameError(<ErrorTopReg message="Everyone has one..." />);
+            setNameError(<ErrorTopReg message='Whats your name'/>)
         } else {
-            setfirstnameError();
+            setNameError()
         }
 
         if(inputs.last === ''){
-            setlastnameError(<ErrorTopReg message="You aren't Seal... " />);
+            setLastError(<ErrorTopReg message='Whats your last name'/>)
         } else {
-            setlastnameError();
+            setLastError()
         }
 
         if(inputs.email === ''){
-            setEmailError(<ErrorTopReg message="You must have an email" />);
+            setEmailError(<ErrorTopReg message='Whats your email'/>)
         } else {
-            setEmailError();
+            setEmailError()
         }
 
         if(inputs.username === ''){
-            setUsernameError(<ErrorTopReg message="You will login with this" />);
+            setUsernameError(<ErrorTopReg message='Whats your username'/>)
         } else {
-            setUsernameError();
+            setUsernameError()
         }
 
         if(inputs.contact === ''){
-            setContactError(<ErrorTopReg message="We will call you all the time" />);
+            setContactError(<ErrorTopReg message='Whats your number'/>)
         } else {
-            setContactError();
+            setContactError()
         }
 
         if(inputs.password === ''){
-            setPasswordError(<ErrorTopReg message="Keep it simple and easy..." />);
+            setPasswordError(<ErrorTopReg message='Whats your password'/>)
         } else {
-            setPasswordError();
+            setPasswordError()
         }
 
         if(inputs.passwordCon === ''){
-            setPasswordConError(<ErrorTopReg message="They Kinda need to match..." />);
+            setPasswordConError(<ErrorTopReg message='Confirm Password'/>)
         } else {
-            setPasswordConError();
+            setPasswordConError()
         }
 
+        //checking if values is equal to nothing to return true or false
         let result = Object.values(inputs).some(o => o === '');
 
-        if(result){
-            console.log('Not working');
+        if(result) {
+            console("There is an error")
         } else {
-            axios.post('http://localhost/MedClinic_TermTwo/api/addUser.php', inputs)
-            .then(function(response){
-             console.log(response);
+            axios.post('http://localhost/MedClinic_TermTwo/addUser.php', inputs)
+            .then(function(response) {
+                console.log(response);
 
-             if(response.status === 200){
-                 navigate("/login");
-             }
-
-            });
+                if(response.status === 200) {
+                    navigate("/login")
+                }
+            })
         }
-
     }
+
+    // Log In Functionality
+    const [logInputs, setLogInputs] = useState({
+        name: '',
+        email: '',
+        password: ''
+      });
+    
+      const usernameValLogin = (e) => {
+        const value = e.target.value;
+        setLogInputs({...logInputs, email: value})
+        // validate here (validate if empty)
+      }
+    
+      const passwordValLogin = (e) => {
+        const value = e.target.value;
+        setLogInputs({...logInputs, password: value})
+        //validate here ( for removing errors)
+        //capslock event
+      }
+    
+      const handleSubmitLogin = (e) => {
+        e.preventDefault();
+        console.log(logInputs);
+        axios.post('http://localhost/MedClinic_TermTwo/userLogin.php', logInputs)
+        .then((response) => {
+          console.log(response.data);
+          setLogInputs({...logInputs, name: response.name});
+          //remember me when page refresh (local storage)
+          if(response.data === true) {
+            sessionStorage.setItem('activeUser', logInputs.name);
+            navigate("/");
+          } else {
+            console.log("not working");
+          }
+        })
+      }
 
 
     return (
@@ -213,12 +266,11 @@ const Patients = (props) => {
                     </Col>
                     <Col md={12}>
                         <br></br>
-                        <form onSubmit={handleSubmit} className="row align-items-center justify-content-center">
-                            <label className={isActive ? 'logInputLab' : 'show hide'}><h4>Username</h4></label>
-                            <ErrorTopLog Active={isActive}/>
-                            <input className={isActive ? 'logInput borderRad' : 'hide'}></input>
+                        <form onSubmit={handleSubmitLogin} className="row align-items-center justify-content-center">
+                            <label className={isActive ? 'logInputLab' : 'show hide'}><h4>Email</h4></label>
+                            <input type="email" onChange={usernameValLogin} className={isActive ? 'logInput borderRad' : 'hide'}></input>
                             <label className={isActive ? 'logInputLab' : 'hide'}><h4>Password</h4></label>
-                            <input className={isActive ? 'logInput borderRad' : 'hide'}></input>
+                            <input type='password' onChange={passwordValLogin} className={isActive ? 'logInput borderRad' : 'hide'}></input>
                             <label className={isActive ? 'logInputLab' : 'hide'}><h4>Forgot Password?</h4></label>
                             <label onClick={toggleRegister} className={isActive ? 'logInputLab' : 'hide'}><h4>Don't have an account?</h4></label>
                             <button className={isActive ? 'LogButton borderRad shadow' : 'hide'}><p><b>Log In</b></p></button>
@@ -226,19 +278,19 @@ const Patients = (props) => {
                             {/* //email */}
                             <label className={isActive ? 'hide' : 'logInputLab'}><h4>Email</h4></label>
                             {emailError}
-                            <input onBlur={validateEmail} onChange={emailVal} className={isActive ? 'hide' : 'logInput borderRad'}></input>
+                            <input onBlur={authEmail} onChange={emailVal} className={isActive ? 'hide' : 'logInput borderRad'}></input>
                             {/* //first name */}
                             <label className={isActive ? 'hide' : 'logInputLab'}><h4>First Name</h4></label>
-                            {firstnameError}
+                            {firstNameError}
                             <input onChange={firstVal} className={isActive ? 'hide' : 'logInput borderRad'}></input>
                             {/* //Last name */}
                             <label className={isActive ? 'hide' : 'logInputLab'}><h4>Last Name</h4></label>
-                            {lastnameError}
+                            {lastNameError}
                             <input onChange={lastVal} className={isActive ? 'hide' : 'logInput borderRad'}></input>
                             {/* //Username */}
                             <label className={isActive ? 'hide' : 'logInputLab'}><h4>Username</h4></label>
                             {usernameError}
-                            <input onBlur={validateUser} onChange={usernameVal} className={isActive ? 'hide' : 'logInput borderRad'}></input>
+                            <input onBlur={authUser} onChange={usernameVal} className={isActive ? 'hide' : 'logInput borderRad'}></input>
                             {/* //Contact */}
                             <label className={isActive ? 'hide' : 'logInputLab'}><h4>Contact Number</h4></label>
                             {contactError}

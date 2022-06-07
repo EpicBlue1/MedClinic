@@ -7,9 +7,9 @@ const message = (props) => {
     return (
 
         <div className="MessageObj shadow borderRad">
-            <h4>Hendrik</h4>
-            <p>ajcjkancjacjkackackjak ajnkjcaca</p>
-            <h4>11:22</h4>
+            <h4>{props.Username}</h4>
+            <p>{props.message}</p>
+            <h4>{props.date}</h4>
         </div>
 
     );

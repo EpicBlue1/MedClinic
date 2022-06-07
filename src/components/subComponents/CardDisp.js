@@ -11,12 +11,11 @@ const CardDisp = (props) => {
                 <Row>
                     <Col className="editCard" md={12}><img className="editButton"/></Col>
                     <Col className="ProfileCard" md={12}><img className="CardImg shadow"/></Col>
-                    <Col className="InfoCard" xs={12} md={12}><b>Name</b></Col>
-                    <Col className="InfoCard" xs={6} md={6}>Info 1</Col>
-                    <Col className="InfoCard" xs={6} md={6}>Info 1</Col>
-                    <Col className="InfoCard" xs={6} md={6}>Info 1</Col>
-                    <Col className="InfoCard" xs={6} md={6}>Info 1</Col>
-                    <Col className="InfoCard" xs={12} md={12}>Info 1</Col>
+                    <Col className="InfoCard" xs={12} md={12}><b>{props.Name} {props.Surname}</b></Col>
+                    <Col className="InfoCard" xs={6} md={6}>Age: {props.Age}</Col>
+                    <Col className="InfoCard" xs={6} md={6}>Sex: {props.Sex}</Col>
+                    <Col className="InfoCard overflow" xs={12} md={12}>{props.email}</Col>
+                    <Col className="InfoCard" xs={12} md={12}>{props.phoneNum}</Col>
                 </Row>
             </div>
         </Col>
