@@ -19,7 +19,7 @@ const Doctors = (props) => {
       axios.post('http://localhost/MedClinic_TermTwo/readDoctor.php', userId)
       .then((res)=>{
         let data = res.data;
-        let renderPost = data.map((item) =>  <CardDisp key={item.Id} rerender={setRenderPost} email={item.specialization} phoneNum={item.phoneNum} Surname={item.Surname} Name={item.Name} uniqueId={item.Id} Sex={item.Sex} Age={item.Age}/>);
+        let renderPost = data.map((item) =>  <CardDisp Usertype="Doctor" ChangeType="Specialization" key={item.Id} rerender={setRenderPost} Attr={item.specialization} email={item.specialization} phoneNum={item.phoneNum} Surname={item.Surname} Name={item.Name} uniqueId={item.Id} Sex={item.Sex} Age={item.Age}/>);
         console.log(data);
         setPosts(renderPost);
         setRenderPost(false);

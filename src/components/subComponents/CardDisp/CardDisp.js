@@ -5,10 +5,10 @@ import EditUser from '../editUser';
 
 const CardDisp = (props) => {
 
-    const [Modal, setModal] = useState()
+    const [Modal, setModal] = useState();
 
     const editPost = () => {
-      setModal(<EditUser ChangeType="Specialization" UserName={props.Name + " " + props.Surname} Usertype="Doctor" upRender={props.rerender} rerender={setModal} originalHist={props.email} originalNum={props.phoneNum} originalAge={props.Age} id={props.uniqueId}/>)
+      setModal(<EditUser ChangeType={props.ChangeType} UserName={props.Name + " " + props.Surname} Usertype={props.Usertype} upRender={props.rerender} rerender={setModal} originalHist={props.Attr} originalNum={props.phoneNum} originalAge={props.Age} id={props.uniqueId}/>)
     }
 
     return (

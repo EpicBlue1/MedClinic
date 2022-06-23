@@ -19,6 +19,7 @@ const EditUser = (props) => {
       useEffect(() => {
 
         console.log(props.originalNum);
+        console.log(props.id);
     
         document.getElementById("Age").value = props.originalAge;
         document.getElementById("Num").value = props.originalNum;
@@ -61,21 +62,35 @@ const EditUser = (props) => {
 
       const deletePost = () => {
         if(window.confirm("Are you sure about that?") === true){
+            if(props.Usertype === 'Doctor'){
+
+                let postId = {id: props.id};
     
-          let postId = {id: props.Id};
+                axios.post('http://localhost/MedClinic_TermTwo/deleteDoc.php', postId)
+                .then((res)=>{
+                  let data = res.data;
+                  console.log(data);
+                  //set useState in parent
+                  props.upRender(true);
+                })
+          
+              } else if (props.Usertype === 'Patient') {
+
+                let postId = {id: props.id};
     
-          axios.post('http://localhost/api_WeekSeven/deletePost.php', postId)
-          .then((res)=>{
-            let data = res.data;
-            console.log(data);
-            
-            //set useState in parent
-            props.rerender(true);
-          })
+                axios.post('http://localhost/MedClinic_TermTwo/deletePat.php', postId)
+                .then((res)=>{
+                  let data = res.data;
+                  console.log(data);
+                  //set useState in parent
+                  props.upRender(true);
+                })
+              } 
+            } else {
+                console.log("The user did not delete")
+              }
     
-        } else {
-          console.log("The user did not delete")
-        }
+
       }
 
     return (
@@ -88,7 +103,7 @@ const EditUser = (props) => {
             <label className="inputUpdate">{props.ChangeType}:</label>
             <input className="inputUpdate" id="Hist" onChange={HistchangeHandler}/>
             <button type='submit' className="LogButton borderRad">Done</button>
-            <div onClick={closeModal} className="LogButtonRed borderRad cursor">Remove</div>
+            <div onClick={deletePost} className="LogButtonRed borderRad cursor">Remove</div>
             <div onClick={closeModal} className="LogButton borderRad cursor">Close</div>
         </form>
     );
