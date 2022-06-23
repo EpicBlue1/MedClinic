@@ -6,11 +6,10 @@
 
 //Set styling
 @import 'componentscss/universalstyle.scss'; //preset styling
-@import 'componentscss/landing.scss'; //landing page styling
-@import 'componentscss/SubComps.scss'; //Most of the styling for sub-components (Nav, Search, etc.)
-@import 'componentscss/UpdateAndTable.scss'; //Updates and appointment tables 
-@import 'componentscss/CardDisp.scss'; //Doctors and patient cards
-@import 'componentscss/LogInNReg.scss'; //Doctors and patient cards
-@import 'componentscss/modals.scss'; //All modal styling
+@import '../components/subComponents/SubComps.scss'; //Most of the styling for sub-components (Nav, Search, etc.)
+@import '../components/UpdateSection/UpdateAndTable.scss'; //Updates and appointment tables 
+@import '../components/subComponents/CardDisp/CardDisp.scss'; //Doctors and patient cards
+@import '../components/LogInNReg/LogInNReg.scss'; //Doctors and patient cards
+@import '../components/subComponents/Modals/modals.scss'; //All modal styling
 
 

@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Dashboard from './components/Dash';
 import DoctorsPage from './components/Doctors';
 import PatientPage from './components/Patients';
-import LogNReg from './components/LogInNReg';
+import LogNReg from './components/LogInNReg/LogInNReg';
 import NavBar from './components/subComponents/nav';
 import TimeSlotSec from './components/subComponents/timeSlotSec';
 import { useNavigate } from 'react-router-dom';

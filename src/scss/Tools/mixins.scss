@@ -1,8 +1,8 @@
 //background-images
 @mixin background_images {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-position: center!important;
+    background-repeat: no-repeat !important;
   }
 
 //Headings and text

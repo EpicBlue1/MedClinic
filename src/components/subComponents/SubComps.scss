@@ -13,7 +13,7 @@
   }
 
 //Navigation
-    .NavItem{
+  .NavItem{
     cursor: pointer;
     @include NavPadDesk;
     @include NavHeightDesk;
@@ -49,6 +49,7 @@
   }
 
   .NavItemFive{
+    cursor: pointer;
     height: 35px;
     text-align: center !important;
     border-bottom-right-radius: 25px;
@@ -62,9 +63,8 @@
     margin: 0 auto !important;
     width: 100% !important;
     height: 100% !important;
-    background-size: 75%;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
+    @include background_images;
+    background-size: 65% !important;
     background-image: url(../../img/Logo.png);
   }
 
@@ -73,8 +73,7 @@
     width: 90% !important;
     height: 90% !important;
     background-size: 100%;
-    background-position: center center !important;
-    background-repeat: no-repeat !important;
+    @include background_images;
     background-image: url(../../img/DocterImgtemp.jpg);
     border-radius: 15px;
   }
@@ -148,10 +147,10 @@
   }
   
   //media queries
-    @media (max-width: 480px) {
+  @media (max-width: 480px) {
 .NavItem{
     @include NavHeightMob;
-    }
+  }
 
 .NavItemOne{
     @include NavHeightMob;
@@ -171,34 +170,32 @@
     text-align: center !important;
     border-bottom-left-radius: 25px;
     box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1)
-    }
+}
 
 .navImg{
       margin: 0 auto !important;
       width: 100% !important;
       height: 100% !important;
-      background-size: cover;
-      background-position: center center !important;
-      background-repeat: no-repeat !important;
+      @include background_images;
       background-image: url(../../img/Logo.png);
       border-radius: 55px;
-    }
+}
 
 .UserInfo{
       padding-top: 6px !important;
       padding-bottom: 6px !important;
       height: 45px !important;
-    }
+}
 
 .UserInfoName{
       padding-top: 2px !important;
       padding-bottom: 6px !important;
       height: 45px !important;
-    }
+}
 
 h2{
       font-size: 18px !important;
-    }
+}
 
 .Searchbar{
         float: left;
@@ -208,7 +205,7 @@ h2{
         width: 80% !important;
         height: 40px;
         padding-left: 2%;
-    }
+}
 
 .SearchButton{
     float: left;
@@ -224,8 +221,7 @@ h2{
         margin-top: 15px !important;
         padding-top: 2%;
         width: 100% !important;
-
         background-color: $secondary_greenish;
-    }
+}
     
 }

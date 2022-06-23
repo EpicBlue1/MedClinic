@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useState, useRef, useEffect } from "react";
-import UpdateSec from './UpdateSec';
+import UpdateSec from './UpdateSection/UpdateSec';
 import AppSections from './AppointmentsSec';
 import Toolbar from './subComponents/toolSec';
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +16,7 @@ const Dash = (props) => {
         if(userSession === '' || userSession === null) {
           navigate('/LoginAndReg');
         }
-      }, [])
+      }, []);
 
     return (
 

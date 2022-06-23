@@ -30,18 +30,15 @@
     float: right;
     width: 28px;
     height: 28px;
-    background-image: url(../../img/editBut.png);
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url(../../../img/editBut.png);
+    @include background_images;
     border: none !important;
 }
 
 .CardImg{
     margin-left: 32%;
-    background-image: url(../../img/DocterImgtemp.jpg);
-    background-position: center;
-    background-size: cover;
+    background-image: url(../../../img/DocterImgtemp.jpg);
+    @include background_images;
     border-radius: 55px;
     width: 85px;
     height: 85px;
@@ -58,9 +55,7 @@
     }
     .CardImg{
         margin-left: 33%;
-        background-image: url(../../img/DocterImgtemp.jpg);
-        background-position: center;
-        background-size: cover;
+        background-image: url(../../../img/DocterImgtemp.jpg);
         border-radius: 55px;
         width: 65px;
         height: 65px;

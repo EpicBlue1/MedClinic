@@ -15,6 +15,7 @@ const ToolSec = (props) => {
             <Col xs={12} md={3}><button className="AddApp borderRad shadow"><p>{props.addButName}</p></button></Col>
         </Row>
         <hr></hr>
+        <br></br>
         </>
 
     );

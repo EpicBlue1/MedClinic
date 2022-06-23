@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useState, useRef, useEffect } from "react";
 import Toolbar from './subComponents/toolSec';
-import CardDisp from './subComponents/CardDisp';
+import CardDisp from './subComponents/CardDisp/CardDisp';
 
 const Doctors = (props) => {
 

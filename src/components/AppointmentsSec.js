@@ -36,22 +36,22 @@ const Dash = (props) => {
 
     return (
 
-        <Col className="AppTable" md={8} xs={12}>
+      <Col className="AppTable" md={8} xs={12}>
         <table>
-            <tr>
-                <th>Name</th>
-                <th>Time</th>
-                <th>Dr</th>
-                <th></th>
-            </tr>
+          <tr>
+            <th>Name</th>
+            <th>Time</th>
+            <th>Dr</th>
+            <th></th>
+          </tr>
         </table>
-        <hr></hr>
+      <hr></hr>
         <div className="overflow">
             <table>
                 {tableItem}
             </table>
         </div>
-        </Col>
+      </Col>
 
     );
 };
