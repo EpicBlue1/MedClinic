@@ -28,7 +28,7 @@ const Patients = (props) => {
     
           let data = response.data;
           console.log(data)
-          let renderCard = data.map((item) => <CardDisp phoneNum={item.phoneNum} Name={item.Name} Surname={item.Surname} Age={item.Age} Sex={item.Sex} email={item.email} />);
+          let renderCard = data.map((item) => <CardDisp rerender={setRenderApp} key={item.Id} uniqueId={item.Id} phoneNum={item.phoneNum} Name={item.Name} Surname={item.Surname} Age={item.Age} Sex={item.Sex} email={item.email} />);
     
           setpatCard(renderCard);
           setRenderApp(false);

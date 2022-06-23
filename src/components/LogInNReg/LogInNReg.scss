@@ -63,6 +63,17 @@
     border: none; 
 }
 
+.LogButtonRed{
+    padding-top: 3px;
+    background-color: $color_red;
+    height: 35px;
+    color: white;
+    margin: 0 auto !important;
+    width: 50% !important;
+    margin-top: 20px !important;
+    border: none; 
+}
+
 .LogButton-change{
     padding-top: 4px;
     background-color: $primary_blue;
