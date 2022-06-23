@@ -88,9 +88,7 @@ const EditUser = (props) => {
               } 
             } else {
                 console.log("The user did not delete")
-              }
-    
-
+            }
       }
 
     return (
