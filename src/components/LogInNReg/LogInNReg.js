@@ -238,6 +238,7 @@ const Patients = (props) => {
 
                 if(response.status === 200) {
                     sessionStorage.setItem('activeUser', inputs.email);
+                    sessionStorage.setItem('name', inputs.first);
                     navigate("/")
                 }else {
                     console.log("not working");

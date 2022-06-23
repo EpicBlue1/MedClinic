@@ -3,8 +3,25 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { useState, useRef, useEffect } from "react";
 import AppointItem from "./subComponents/AppointmentTb";
 import axios from 'axios';
+import EditApp from "./subComponents/Modals/editAppoint";
 
 const Dash = (props) => {
+
+      const [Modal, setModal] = useState();
+
+      const editPost = () => {
+        axios.post('http://localhost/MedClinic_TermTwo/readAppointments.php', Appointment)
+        .then((response) =>{
+          let data = response.data;
+          console.log(data)
+          let renderApp = data.map((item) => <EditApp Time={item.Timeslot} UserName={item.Name + " " + item.Surname} Usertype={item.Usertype} upRender={item.rerender} rerender={setModal} originalTime={item.Timeslot} originalDr={"Dr" + item.DrSurname} id={item.Id}/>);
+    
+          setModal(renderApp);
+        })
+        .catch(error =>{
+          console.log(error);
+        })
+      }
 
       const [Appointment, setAppointment] = useState({
         name: '',
@@ -24,7 +41,7 @@ const Dash = (props) => {
     
           let data = response.data;
           console.log(data)
-          let renderApp = data.map((item) => <AppointItem DrSurname={item.DrSurname} Name={item.Name} Surname={item.Surname} TimeSlot={item.Timeslot}/>);
+          let renderApp = data.map((item) => <AppointItem editPost={editPost} uniqueId={item.Id} rerender={setRenderApp} DrSurname={item.DrSurname} Name={item.Name} Surname={item.Surname} Time={item.Timeslot}/>);
     
           settableItem(renderApp);
           setRenderApp(false);
@@ -37,6 +54,7 @@ const Dash = (props) => {
     return (
 
       <Col className="AppTable" md={8} xs={12}>
+        {Modal}
         <table>
           <tr>
             <th>Name</th>

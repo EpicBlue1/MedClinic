@@ -1,18 +1,23 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
 
 const AppointmentItem = (props) => {
 
-    return (
-        <>
-            <tr className="PatientCard">
-                <td>{props.Name} {props.Surname}</td>
-                <td>{props.Timeslot}</td>
-                <td>Dr.{props.DrSurname}</td>
-                <td><button className="RemoveBut borderRad"></button></td>
-            </tr>
-            <div className="Spacing"></div>
-        </>
 
+    const editPost = () => {
+        console.log("Lol")
+        props.editPost()
+    }
+
+    return (
+
+            <tr id={props.uniqueId} className="PatientCard">
+                <td>{props.Name} {props.Surname}</td>
+                <td>{props.Time}</td>
+                <td>Dr.{props.DrSurname}</td>
+                <td><button onClick={editPost} className="RemoveBut borderRad"></button></td>
+                <div className="Spacing"></div>
+            </tr>
 
     );
 };

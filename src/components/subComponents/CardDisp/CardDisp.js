@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useState, useRef, useEffect } from "react";
-import EditUser from '../editUser';
+import EditUser from '../Modals/editUser';
 
 const CardDisp = (props) => {
 
