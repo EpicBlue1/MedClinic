@@ -13,7 +13,7 @@
     $updatedHist = $data->UpHistory;
     $userId = $data->id;
 
-    $sql = "UPDATE doctors SET Age='$updatedAge', phoneNum='$updatedNum', specialization='$updatedHist' WHERE id='$userId'";
+    $sql = "UPDATE patients SET Age='$updatedAge', phoneNum='$updatedNum', MedHistoryTwo='$updatedHist' WHERE Id='$userId'";
     $result = mysqli_query($conn, $sql);
 
     if(!$result){
