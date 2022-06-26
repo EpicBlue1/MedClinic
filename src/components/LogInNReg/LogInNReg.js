@@ -12,7 +12,7 @@ import Checked from '../../img/icons8-check-64.svg';
 import Crossed from '../../img/icons8-cross-96.svg';
 import ModalAddImage from '../subComponents/Modals/addPhotoModal';
 
-const Patients = (props) => {
+const Patients = () => {
 
     const [isActive, setActive] = useState("false");
     const [openModal, setopenModal] = useState("false");
@@ -126,7 +126,7 @@ const Patients = (props) => {
     }
 
     const ageVal = (e) => {
-        const value = String(e.target.value.trim());
+        const value = e.target.value;
         setInputs({...inputs, age: value});
         if(inputs.age !== ''){setAgeError();}
     }
@@ -142,6 +142,7 @@ const Patients = (props) => {
     const contactVal = (e) => {
         const contRegex = /^\d{9}$/;
         let value = e.target.value;
+        value = parseInt(value);
         console.log(value)
         setInputs({...inputs, contact: value});
         if(inputs.contact !== ''){setContactError();}
@@ -227,7 +228,6 @@ const Patients = (props) => {
 
         //checking if values is equal to nothing to return true or false
         let result = Object.values(inputs).some(o => o === '');
-        console.log(result);
 
         if(result) {
             console.log("There is an error")
@@ -239,7 +239,7 @@ const Patients = (props) => {
                 if(response.status === 200) {
                     sessionStorage.setItem('activeUser', inputs.email);
                     sessionStorage.setItem('name', inputs.first);
-                    navigate("/")
+                    navigate("/");
                 }else {
                     console.log("not working");
                 }
@@ -276,6 +276,7 @@ const Patients = (props) => {
           //remember me when page refresh (local storage)
           if(response.data === true) {
             sessionStorage.setItem('activeUser', logInputs.email);
+            sessionStorage.setItem('name', inputs.first);
             navigate("/");
           } else {
             console.log("not working");
@@ -309,7 +310,6 @@ const Patients = (props) => {
                         <form onSubmit={handleSubmit} className="row align-items-center justify-content-center">
                             <ModalAddImage setImageAdded={setImageAdded} setModalOpen={closeModal} openModal={openModal} setinputs={setInputs} inputs={inputs}/>
                             <div onClick={ModalImage} className={isActive ? 'hide' : 'ProfileButton cursor borderRad shadow'}><p><b>Add Image</b></p></div><img className={isActive ? 'hide' : 'profileImgIndc'} src={imageAdded}></img>
-                            <p className={isActive ? 'hide' : 'smallPrint'} src={imageAdded}>*Optional</p>
                             {/* //email */}
                             <label className={isActive ? 'hide' : 'logInputLab'}><h4>Email</h4></label>
                             {emailError}

@@ -19,6 +19,11 @@ $password = $data->password;
 $profileImg = $data->profileImg;
 $rank = $data->rank;
 
+$contact = (int)$contact;
+$contact = (float)$contact;
+$rank = (int)$rank;
+$rank = (float)$rank;
+
 $passwordEncrypt = md5($password);
 
 list($type, $profileImg) = explode(';', $profileImg);
