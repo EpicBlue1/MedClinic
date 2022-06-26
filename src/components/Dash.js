@@ -22,8 +22,7 @@ const Dash = (props) => {
 
         <>
             {props.navBar}
-            <Toolbar addButName = "Add Appointment" pageName = "Appointments"/>
-            {props.timeSection}
+            <Toolbar addButName = "Add Appointment" pageName = "Appointments Today"/>
             <Row>
                 <AppSections/>
                 <Col md={1}></Col>

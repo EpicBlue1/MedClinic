@@ -47,17 +47,36 @@ const EditUser = (props) => {
     
       const updatePost = (e) => {
         e.preventDefault();
-    
-        axios.post('http://localhost/MedClinic_TermTwo/updateDoc.php', updatedPost)
-        .then((res)=>{
-          let data = res.data;
-          console.log(data);
-          props.upRender(true);
-          props.rerender();
-        })
-        .catch(err=>{
-          console.log(err);
-        });
+
+        if(props.Usertype === 'Doctor'){
+
+          axios.post('http://localhost/MedClinic_TermTwo/updateDoc.php', updatedPost)
+          .then((res)=>{
+            let data = res.data;
+            console.log(data);
+            props.upRender(true);
+            props.rerender();
+          })
+          .catch(err=>{
+            console.log(err);
+          });
+
+
+        } else if (props.Usertype === 'Patient') {
+
+          axios.post('http://localhost/MedClinic_TermTwo/updatePat.php', updatedPost)
+          .then((res)=>{
+            let data = res.data;
+            console.log(data);
+            props.upRender(true);
+            props.rerender();
+          })
+          .catch(err=>{
+            console.log(err);
+          });
+
+
+        } 
       }
 
       const deletePost = () => {

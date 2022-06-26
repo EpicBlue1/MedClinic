@@ -44,7 +44,7 @@ const UpdateSec = (props) => {
   const addNewPost = (e) =>{
     e.preventDefault();
     document.getElementById('update').value = "";
-    axios.post('http://localhost/MedClinic_TermTwo/addPost.php', postMessage)
+    axios.post('http://localhost/MedClinic_TermTwo/addUpdate.php', postMessage)
     .then((response) =>{
       let data = response.data;
       console.log(data);

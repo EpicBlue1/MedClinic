@@ -85,8 +85,9 @@
   }
   
   .UserInfoName{
-    padding-top: 10px !important;
-    padding-bottom: 6px !important;
+    padding-top: 20px !important;
+    // padding-bottom: 6px !important;
+    overflow-x: auto;
     @include NavHeightDesk;
   }
 
@@ -136,7 +137,6 @@
   }
 
   .TimeStamp{
-      cursor: pointer;
       width: 100px;
       height: 35px;
       background-color: white;
@@ -144,6 +144,16 @@
       margin-top: 5px;
       text-align: center;
       padding-top: 3px;
+  }
+
+  .PatientCard{
+    height: 45px;
+    padding-top: 6px;
+    padding-left: 10px;
+    width: 100%;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 5px;
   }
   
   //media queries

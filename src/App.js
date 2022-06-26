@@ -7,31 +7,31 @@ import DoctorsPage from './components/Doctors';
 import PatientPage from './components/Patients';
 import LogNReg from './components/LogInNReg/LogInNReg';
 import NavBar from './components/subComponents/nav';
-import TimeSlotSec from './components/subComponents/timeSlotSec';
 import { useNavigate } from 'react-router-dom';
 
 function App() {
 
- const [nav, setNav] = useState(<NavBar/>);
-//  const [toolbar, setToolbar] = useState(<Toolbar/>);
- const [TimeSec, setTimeSec] = useState(<TimeSlotSec/>);
  const navigate = useNavigate();
+
+ const [ActiveUser, setActiveUser] = useState(sessionStorage.getItem('activeUser'));
+
 
  useEffect(() =>{
   const userSession = sessionStorage.getItem('activeUser');
-  console.log(userSession);
   if(userSession === '' || userSession === null) {
     navigate('/LoginAndReg');
   }
 }, [])
 
+const [nav, setNav] = useState(<NavBar ActiveUser={ActiveUser}/>);
+
   return (
     <Container fluid>
       <Routes>
-        <Route path="/" element={<Dashboard pageName = "Appointments" navBar = {nav} timeSection = {TimeSec}/>}></Route>
-        <Route path="/PatientPage" element={<PatientPage pageName = "Appointments" navBar = {nav} timeSection = {TimeSec} />} ></Route>
-        <Route path="/DoctorsPage" element={<DoctorsPage pageName = "Appointments" navBar = {nav} timeSection = {TimeSec} />} ></Route>
-        <Route path="/LoginAndReg" element={<LogNReg pageName = "Appointments" navBar = {nav} timeSection = {TimeSec} />} ></Route>
+        <Route path="/" element={<Dashboard pageName = "Appointments" navBar = {nav}/>}></Route>
+        <Route path="/PatientPage" element={<PatientPage pageName = "Appointments" navBar = {nav} />} ></Route>
+        <Route path="/DoctorsPage" element={<DoctorsPage pageName = "Appointments" navBar = {nav} />} ></Route>
+        <Route path="/LoginAndReg" element={<LogNReg pageName = "Appointments" navBar = {nav} />} ></Route>
       </Routes>
     </Container>
   );

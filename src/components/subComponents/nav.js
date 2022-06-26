@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import { useState, useRef, useEffect } from "react";
 import { useNavigate } from 'react-router-dom'
 
-const NavBar = () => {
+const NavBar = (props) => {
 
     const navigate = useNavigate();
 
@@ -29,8 +29,7 @@ const NavBar = () => {
                         <div className="PImage bg"></div>
                     </Col>
                     <Col className="UserInfoName" xs={9} md={8}>
-                        <h3>Username</h3>
-                        <h4>Admin</h4>
+                        <h4>{props.ActiveUser}</h4>
                     </Col>
                 </Row>
             </Col>

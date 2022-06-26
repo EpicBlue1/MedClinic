@@ -7,23 +7,13 @@ import axios from 'axios';
 
 const Patients = (props) => {
 
-    const [PatientCard, setPatientCard] = useState({
-        name: '',
-        Surname: '',
-        phoneNum: '',
-        email: '',
-        age: '',
-        sex: '',
-        img: ''
-      })
-
       const [patItem, setpatCard] = useState()
     
       const [renderApp, setRenderApp] = useState();
     
       //this useEffect will get the posts by the user
       useEffect(() =>{
-        axios.post('http://localhost/MedClinic_TermTwo/readPatients.php', PatientCard)
+        axios.post('http://localhost/MedClinic_TermTwo/readPatients.php')
         .then((response) =>{
     
           let data = response.data;
@@ -42,7 +32,7 @@ const Patients = (props) => {
 
         <>
             {props.navBar}
-            <Toolbar addButName = "Add Patient" pageName = "Patients"/>
+            <Toolbar addButName ="Add Patient" pageName = "Patients"/>
             <Row>
                 {patItem}
             </Row>

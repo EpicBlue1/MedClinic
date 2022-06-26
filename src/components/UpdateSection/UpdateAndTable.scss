@@ -1,12 +1,12 @@
 .UpdateSection{
-    height: 80vh;
+    height: 40vh;
     // background-color: white;
     margin-bottom: 5vh;
     border-left: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 .AppTable{
-    height: 80vh;
+    height: 53vh;
     margin-bottom: 5vh;
 }
 
@@ -19,7 +19,7 @@
 .Messages{
     padding-top: 10px;
     text-align: center;
-    height: 63vh;
+    height: 50vh;
 }
 
 .TypeNSend{
@@ -31,21 +31,21 @@
     float: left;
     width: 55%;
     margin-top: 2vh;
-    height: 6vh;
+    height: 35px;
     border-radius: 10px;
 }
 
 .SendMes{
     width: 25%;
     margin-top: 2vh;
-    height: 6vh;
+    height: 35px;
     margin-left: 20%;
     border-radius: 10px;
     background-color: $secondary_greenish;
     border: none;
     background-image: url(../../img/SendIcon.png);
-    background-position: center;
-    background-size: 30%;
+    background-position: center center;
+    background-size: 28%;
     background-repeat: no-repeat;
 }
 
@@ -56,6 +56,12 @@
     width: 70%;
     height: max-content;
     background-color: white;
+}
+
+.TableFour{
+    width: 25%;
+    height: 30px;
+    float: left;
 }
 
 @media (max-width: 480px) {
