@@ -7,15 +7,13 @@
 
 
 Reinhardt de Beer
-21100115 - DV_202_V2
+21100115 - DV_200
 
-# Mediclinic Inc - Interactive Development 200 Term 2
-
-A management system for mediclinics. Add, remove and update Appointments, Patients and Doctors.
-
+# Interactive Development 200 Term 2
 
 <img src="src/img/ReadmeImg/Logo Design.png" align="center" height="200" width="200" >
 
+A management system for mediclinics/receptionists. Add, remove and update Appointments, Patients and Doctors.
 
 ## Table of contents
 
@@ -73,12 +71,12 @@ Run the following in the command-line to install all the required dependencies:
 - View all Doctors, add, remove and edit
 
 ## Feature Screenshots  
-#### Section One (Users)
-![App Screenshot](src/img/UsersSec.png)
-#### Section Two (Expenses)
-![App Screenshot](src/img/ExpensesSec.png)
-#### Section Three (Savings)
-![App Screenshot](src/img/SavingsSec.png)
+#### Update Section
+![App Screenshot](src/img/ReadmeImg/UpdateSec.png)
+#### Update User Information
+![App Screenshot](src/img/ReadmeImg/Edit%20User.png)
+#### Update Add and Update Appointments
+![App Screenshot](src/img/ReadmeImg/AddAppointment.png)
 
 # Ideation
 [Pinterest Board For Concept](https://za.pinterest.com/debeer0072/dv_t2_redesign/)
@@ -87,10 +85,6 @@ Run the following in the command-line to install all the required dependencies:
 ![App Screenshot](src/img/ReadmeImg/Wireframe_1.png)
 ![App Screenshot](src/img/ReadmeImg/Wireframe_2.png)
 ![App Screenshot](src/img/ReadmeImg/Wireframe_3.png)
-
-### User FLow
-![App Screenshot](src/img/UserFlow.png)
-
 
 ## Development Process
 
