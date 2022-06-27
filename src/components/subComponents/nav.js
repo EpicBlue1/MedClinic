@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const NavBar = (props) => {
 
     const navigate = useNavigate();
+    const activeUser = sessionStorage.getItem('name');
 
     const Logout = () =>{
     // sessionStorage.setItem('activeUser')
@@ -29,6 +30,7 @@ const NavBar = (props) => {
                         <div className="PImage bg"></div>
                     </Col>
                     <Col className="UserInfoName" xs={9} md={8}>
+                        <h3>{activeUser}</h3>
                         <h4>{props.ActiveUser}</h4>
                     </Col>
                 </Row>

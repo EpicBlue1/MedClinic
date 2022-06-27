@@ -18,10 +18,10 @@ const EditUser = (props) => {
     
       useEffect(() => {
 
-        console.log(props.originalNum);
+        console.log(props.originalAge);
         console.log(props.id);
     
-        document.getElementById("Age").value = props.originalAge;
+        document.getElementById("AgeNum").value = props.originalAge;
         document.getElementById("Num").value = props.originalNum;
         document.getElementById("Hist").value = props.originalHist;
     
@@ -114,7 +114,7 @@ const EditUser = (props) => {
         <form onSubmit={updatePost} className="UpdateUser borderRad">
             <h2>Edit {props.Usertype} {props.UserName}</h2>
             <label className="inputUpdate">Age:</label>
-            <input className="inputUpdate" id="Age" onChange={AgechangeHandler}/>
+            <input className="inputUpdate" id="AgeNum" onChange={AgechangeHandler}/>
             <label className="inputUpdate" >Phone Number:</label>
             <input className="inputUpdate" id="Num" onChange={NumchangeHandler}/>
             <label className="inputUpdate">{props.ChangeType}:</label>

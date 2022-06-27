@@ -276,7 +276,6 @@ const Patients = () => {
           //remember me when page refresh (local storage)
           if(response.data === true) {
             sessionStorage.setItem('activeUser', logInputs.email);
-            sessionStorage.setItem('name', inputs.first);
             navigate("/");
           } else {
             console.log("not working");

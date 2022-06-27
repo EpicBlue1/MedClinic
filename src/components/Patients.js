@@ -32,7 +32,7 @@ const Patients = (props) => {
 
         <>
             {props.navBar}
-            <Toolbar addButName ="Add Patient" pageName = "Patients"/>
+            <Toolbar PropertyTwo="Medical Aid" PropertyOne="Medical History"  addButName ="Add Patient" pageName = "Patients"/>
             <Row>
                 {patItem}
             </Row>

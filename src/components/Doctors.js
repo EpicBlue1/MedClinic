@@ -30,27 +30,11 @@ const Doctors = (props) => {
 
    },[renderPost]);
 
-  //  const postVal = (e) => {
-  //   let messageVal = e.target.value;
-  //   setPostMessage({...postMessage, message: messageVal});
-  //  }
-
-  //  const addNewPost = (e) => {
-  //    e.preventDefault();
-  //    document.getElementById('textMes').value = "";
-  //    axios.post('http://localhost/api_WeekSeven/addPost.php', postMessage)
-  //     .then((res)=>{
-  //       let data = res.data;
-  //       console.log(data); 
-  //       setRenderPost(true);
-  //     });
-  //  }
-
     return (
 
         <>
             {props.navBar}
-            <Toolbar addButName = "Add Doctor" pageName = "Doctors"/>
+            <Toolbar rerender={setRenderPost} PropertyTwo="Work History (Years)" PropertyOne="Specialization"  addButName = "Add Doctor" pageName = "Doctors"/>
             <Row>
                 {posts}
             </Row>
