@@ -57,9 +57,9 @@ Run the following in the command-line to install all the required dependencies:
 | Name              | Link                                                                     |
 | ----------------- | ------------------------------------------------------------------------ |
 | React Documentation |  https://reactjs.org/ |
-| Jest Documentation  |  https://jestjs.io/docs/expect |
+| Axios               |  https://axios-http.com/docs/intro |
 | React Router Dom    |  https://v5.reactrouter.com/web/guides/quick-start |
-| React Scroll        |  https://www.npmjs.com/package/react-scroll |
+| Sass     |  https://sass-lang.com/ |
 
 
 ## Features
@@ -72,11 +72,14 @@ Run the following in the command-line to install all the required dependencies:
 
 ## Feature Screenshots  
 #### Update Section
-![App Screenshot](src/img/ReadmeImg/UpdateSec.png)
+<img src="src/img/ReadmeImg/UpdateSec.png" align="center" width="250" >
+
 #### Update User Information
-![App Screenshot](src/img/ReadmeImg/Edit%20User.png)
+<img src="src/img/ReadmeImg/Edit%20User.png" align="center" width="250" >
+
 #### Update Add and Update Appointments
-![App Screenshot](src/img/ReadmeImg/AddAppointment.png)
+<img src="src/img/ReadmeImg/AddAppointment.png" align="center" width="250" >
+
 
 # Ideation
 [Pinterest Board For Concept](https://za.pinterest.com/debeer0072/dv_t2_redesign/)
