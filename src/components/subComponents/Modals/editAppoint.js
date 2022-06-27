@@ -135,7 +135,7 @@ const EditAppoint = (props) => {
             
                 let postId = {id: props.id};
     
-                axios.post('http://localhost/MedClinic_TermTwo/deleteDoc.php', postId)
+                axios.post('http://localhost/MedClinic_TermTwo/deleteApp.php', postId)
                 .then((res)=>{
                   let data = res.data;
                   console.log(data);

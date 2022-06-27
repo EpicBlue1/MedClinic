@@ -68,8 +68,7 @@ const AddUser = (props) => {
 
     const handleSubmit = (e) => {
         console.log(addData);
-        e.preventDefault();
-
+        
         if(UserType === 'Patient'){
             if(result) {
                 console.log("There is an error")
