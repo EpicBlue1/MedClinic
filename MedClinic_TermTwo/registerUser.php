@@ -32,7 +32,7 @@ $profileImg = base64_decode($profileImg);
 
 $newPath = 'PFImages/' . time() . '.jpg';
 
-$sql = "INSERT INTO receptionists (Id, Name, Surname, Age, Sex, HeadReceptionist, img, phoneNum, email, password, rank) VALUES (NULL,'$first','$last','$age','$sex','$HeadReceptionist','$newPath','$contact','$email','$passwordEncrypt','$rank');";
+$sql = "INSERT INTO receptionists (Id, Name, Surname, Age, Sex, HeadReceptionist, img, phoneNum, email, password, rank) VALUES (NULL, '$first', '$last', '$age', '$sex', 'false', '', '$contact', '$email', '$passwordEncrypt', '$rank');";
 $result = mysqli_query($conn, $sql);
 
 if(!$result){
