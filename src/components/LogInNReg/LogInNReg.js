@@ -16,6 +16,7 @@ const Patients = () => {
 
     const [isActive, setActive] = useState("false");
     const [openModal, setopenModal] = useState("false");
+    const [incorrect, setIncorrect] = useState();
 
 
     const closeModal = () => {
@@ -279,6 +280,7 @@ const Patients = () => {
             navigate("/");
           } else {
             console.log("not working");
+            setIncorrect(<ErrorTopLog/>)
           }
         })
       }
@@ -299,6 +301,7 @@ const Patients = () => {
                         <br></br>
                         <form onSubmit={handleSubmitLogin} className="row align-items-center justify-content-center">
                             <label className={isActive ? 'logInputLab' : 'show hide'}><h4>Email</h4></label>
+                            {incorrect}
                             <input type="email" onChange={usernameValLogin} className={isActive ? 'logInput borderRad' : 'hide'}></input>
                             <label className={isActive ? 'logInputLab' : 'hide'}><h4>Password</h4></label>
                             <input type='password' onChange={passwordValLogin} className={isActive ? 'logInput borderRad' : 'hide'}></input>

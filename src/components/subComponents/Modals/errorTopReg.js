@@ -18,7 +18,6 @@ const AlertModalLeft = (props) => {
       <div className={isActive ? 'hide' : 'errorTop'}>
       <p className='errorElement'><b>{props.message}</b></p>
       <div className='errorElement'>
-      <img className='errorSubElement' src={ErrorIcon} />
       </div>
     </div>
   )

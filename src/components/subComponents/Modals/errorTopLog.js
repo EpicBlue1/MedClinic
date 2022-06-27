@@ -4,20 +4,19 @@ import { useState, useRef, useEffect } from "react";
 
 const ErrorTopLog = (props) => {
 
-    const [isActive, setActive] = useState(props.Active);
+    // const [isActive, setActive] = useState(props.Active);
 
-    useEffect(() => {
-        let setting = props.Active;
-        setActive(setting);
-    },)
+    // useEffect(() => {
+    //     let setting = props.Active;
+    //     setActive(setting);
+    // },)
 
-    console.log(isActive);
+    // console.log(isActive);
 
     return (
-    <div className={isActive ? 'errorTop' : 'hide'}>
-      <p className='errorElement'><b>Hey No!</b></p>
+    <div className='errorTop'>
+      <p className='errorElement'><b>Password or Email incorrect</b></p>
       <div className='errorElement'>
-      <img className='errorSubElement' src={ErrorIcon} />
       </div>
     </div>
   )
