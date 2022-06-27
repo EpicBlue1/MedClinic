@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+## Repo Info
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![GitHub repo size](https://img.shields.io/github/repo-size/EpicBlue1/MedClinic)
+![GitHub watchers](https://img.shields.io/github/watchers/EpicBlue1/MedClinic)
+![GitHub language count](https://img.shields.io/github/languages/count/EpicBlue1/MedClinic)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/EpicBlue1/MedClinic)
 
-## Available Scripts
 
-In the project directory, you can run:
+Reinhardt de Beer
+21100115 - DV_202_V2
 
-### `npm start`
+# Mediclinic Inc - Interactive Development 200 Term 2
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+A management system for mediclinics. Add, remove and update Appointments, Patients and Doctors.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+<img src="src/img/ReadmeImg/Logo Design.png" align="center" height="200" width="200" >
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Table of contents
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* [Installation](#Installation)
+    * [Depebdancy Documentation](#Dependancies-Utilized)
+* [Dependancies-Utilized](#Dependancies-Utilized)
+* [Features](#Features)
+    * [Feature-Screenshots](#Feature-Screenshots)
+* [Ideation](#Ideation)
+* [Development-Process](#Development-Process)
+    * [Challenges](#Challenges)
+* [Final-Outcome](#Final-Outcome)
+    * [Mockups](#Mockups)
+    * [Video-Demonstration](#Video-Demonstration)
+    * [Final-Outcome](#Final-Outcome)
+* [Authors](#Authors)
+* [License](#License)
+* [Contact](#Contact)
+## Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. GitHub Desktop
+Enter `https://github.com/EpicBlue1/MedClinic.git` into the URL field and press the `Clone` button.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Clone Repository
+Run the following in the command-line to clone the project:
+   ```sh
+   git clone https://github.com/EpicBlue1/MedClinic.git
+   ```
+    Open `IDE` and select `File | Open...` from the menu. Select cloned directory and press `Open` button
 
-### `npm run eject`
+3. Install Dependencies
+Run the following in the command-line to install all the required dependencies:
+   ```sh
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. An API key is not required## Dependancies Utilized
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Dependancies Utilized
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| Name              | Link                                                                     |
+| ----------------- | ------------------------------------------------------------------------ |
+| React Documentation |  https://reactjs.org/ |
+| Jest Documentation  |  https://jestjs.io/docs/expect |
+| React Router Dom    |  https://v5.reactrouter.com/web/guides/quick-start |
+| React Scroll        |  https://www.npmjs.com/package/react-scroll |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Features
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- An overview displaying all members added total income, expenses and total tax expense (monthly).
+- Add Users and tax bracket and income after tax will be automatically calculated.
+- Add expenses and track total expenses.
+- Calculate savings based on income after tax or before tax.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Feature Screenshots  
+#### Section One (Users)
+![App Screenshot](src/img/UsersSec.png)
+#### Section Two (Expenses)
+![App Screenshot](src/img/ExpensesSec.png)
+#### Section Three (Savings)
+![App Screenshot](src/img/SavingsSec.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# Ideation
+[Pinterest Board For Concept](https://za.pinterest.com/debeer0072/unit-testing-website/)
 
-### Analyzing the Bundle Size
+### Wireframe
+![App Screenshot](src/img/Wireframe.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### User FLow
+![App Screenshot](src/img/UserFlow.png)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Development Process
 
-### Advanced Configuration
+* Utilized React `React` dependency for building the project
+* Utilized React `Jest` dependency for testing my code (functions and renders)
+* Implemented smooth Scrolling between sections with `React-Scroll`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Challenges
 
-### Deployment
+* Jest is inconsistent at times
+* Testing useStates seems to be impossible
+* Getting grand children to set useStates in a Parent
+* Infinite loops due to useEffects not wanting to update
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Final Outcome
 
-### `npm run build` fails to minify
+### Mockups
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Mockup One](src/img/ReadmeImg/MacMockup_01.png)
+
+![Mockup Two](src/img/ReadmeImg/MacMockup_02.png)
+
+![Mockup Three](src/img/ReadmeImg/MacMockup_03.png)
+
+### Mobile
+
+![Mockup Four](src/img/ReadmeImg/PhoneMockup_01.png)
+
+![Mockup Five](src/img/ReadmeImg/PhoneMockup_02.png)
+
+### Promotional Video
+
+[Promotional Video](https://youtu.be/_ifrJrLPCv0)
+
+### Video Demonstration
+
+To see a run through of the application, click below:
+
+[View Demonstration](https://youtu.be/My5EZHe_pUE)
+
+## Authors
+
+* **Reinhardt de Beer** - [EpicBlue1](https://github.com/EpicBlue1)
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.\
+
+## Contact
+
+* **Reinhardt de Beer** - [21100115@virtualwindow.co.za](mailto:21100115@virtualwindow.co.za) - [@rdb_fotopatat](https://www.instagram.com/rdb_fotopatat/) 
+* **Project Link** - https://github.com/EpicBlue1/MedClinic
