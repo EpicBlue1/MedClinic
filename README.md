@@ -66,11 +66,11 @@ Run the following in the command-line to install all the required dependencies:
 
 ## Features
 
-- An overview displaying all members added total income, expenses and total tax expense (monthly).
-- Add Users and tax bracket and income after tax will be automatically calculated.
-- Add expenses and track total expenses.
-- Calculate savings based on income after tax or before tax.
-
+- An overview of all appointments
+- Add and Remove Appointments
+- An update section for all users to send and receive updates
+- View all Patients, add, remove and edit
+- View all Doctors, add, remove and edit
 
 ## Feature Screenshots  
 #### Section One (Users)
@@ -81,10 +81,12 @@ Run the following in the command-line to install all the required dependencies:
 ![App Screenshot](src/img/SavingsSec.png)
 
 # Ideation
-[Pinterest Board For Concept](https://za.pinterest.com/debeer0072/unit-testing-website/)
+[Pinterest Board For Concept](https://za.pinterest.com/debeer0072/dv_t2_redesign/)
 
-### Wireframe
-![App Screenshot](src/img/Wireframe.jpg)
+### Wireframes
+![App Screenshot](src/img/ReadmeImg/Wireframe_1.png)
+![App Screenshot](src/img/ReadmeImg/Wireframe_2.png)
+![App Screenshot](src/img/ReadmeImg/Wireframe_3.png)
 
 ### User FLow
 ![App Screenshot](src/img/UserFlow.png)
@@ -92,16 +94,18 @@ Run the following in the command-line to install all the required dependencies:
 
 ## Development Process
 
+* An initial site was developed but was scrapped (the wireframes), and development started over for a more refined design.
 * Utilized React `React` dependency for building the project
-* Utilized React `Jest` dependency for testing my code (functions and renders)
-* Implemented smooth Scrolling between sections with `React-Scroll`.
+* Utilized php with `Mamp and MyPhpAdmin` to access and create a database for this web application
+* Utilized React `Bootstrap` for responsive design on mobile devices
+* Utilized `SCSS` to speed up the development process, with reusable variables, etc.
 
 ## Challenges
 
-* Jest is inconsistent at times
-* Testing useStates seems to be impossible
-* Getting grand children to set useStates in a Parent
-* Infinite loops due to useEffects not wanting to update
+* Being overly ambitious with my limited knowledge of something new.
+* CORS errors, where the problem is exactly and the little time to sort them out.
+* Profile images on the database
+* Too many PHP files
 
 ## Final Outcome
 
