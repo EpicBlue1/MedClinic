@@ -1,132 +1,133 @@
-.LogIn{
+.LogIn {
+  margin-top: 18vh !important;
+  height: 400px;
+  transition: all ease-in-out 250ms;
+  background-color: white;
+}
+
+.LogIn-change {
+  margin-top: 2vh !important;
+  height: 70vh;
+}
+
+.show {
+  display: inline-block;
+  opacity: 1;
+  transition: opacity ease-in-out 250ms;
+}
+
+.hide {
+  opacity: 0;
+  display: none !important;
+}
+
+.LogItemOne {
+  @include NavHeightDesk;
+  background-color: $primary_blue;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 10px;
+  box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.LogItemTwo {
+  padding-top: 12px;
+  text-align: center;
+  @include NavHeightDesk;
+  border-bottom-right-radius: 25px;
+  border-top-left-radius: 10px;
+}
+
+.logInput {
+  height: 30px;
+  margin-top: 25px !important;
+  margin-bottom: 15px !important;
+  margin: 0 auto !important;
+  width: 70% !important;
+}
+
+.logInputLab {
+  height: 20px;
+  margin: 0 auto !important;
+  width: 70% !important;
+  margin-top: 15px !important;
+}
+
+.LogButton {
+  padding-top: 3px;
+  background-color: $primary_blue;
+  height: 35px;
+  color: white;
+  margin: 0 auto !important;
+  width: 50% !important;
+  margin-top: 20px !important;
+  border: none;
+}
+
+.LogButtonRed {
+  padding-top: 3px;
+  background-color: $color_red;
+  height: 35px;
+  color: white;
+  margin: 0 auto !important;
+  width: 50% !important;
+  margin-top: 20px !important;
+  border: none;
+}
+
+.LogButton-change {
+  padding-top: 4px;
+  background-color: $primary_blue;
+  height: 35px;
+  color: white;
+  margin: 0 auto !important;
+  width: 50% !important;
+  margin-top: 35px !important;
+  border: none;
+  transition: all ease-in-out 250ms;
+}
+
+.ProfileButton {
+  padding-top: 3px;
+  background-color: white;
+  height: 35px;
+  color: black;
+  margin: 0 auto !important;
+  width: 50% !important;
+  margin-top: 20px !important;
+  border: none;
+  float: left !important;
+}
+
+.profileImgIndc {
+  margin-right: 50px;
+  margin-top: 20px !important;
+  padding: 0 !important;
+  float: left;
+  height: 35px !important;
+  width: 35px !important;
+  border: none !important;
+  @include background_images;
+}
+
+.LogInAndRegister {
+  margin-top: 5% !important;
+}
+
+.smallPrint {
+  font-size: 10px !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 480px) {
+  .LogIn {
     margin-top: 18vh !important;
     height: 400px;
     transition: all ease-in-out 250ms;
     background-color: white;
-}
+  }
 
-.LogIn-change{
+  .LogIn-change {
     margin-top: 2vh !important;
     height: 680px;
-}
-
-.show{
-    display: inline-block;
-    opacity: 1;
-    transition: opacity ease-in-out 250ms;
-}
-
-.hide{
-    opacity: 0;
-    display: none !important;
-}
-
-.LogItemOne{
-    @include NavHeightDesk;
-    background-color: #0349C2 !important;
-    border-bottom-right-radius: 25px;
-    border-top-left-radius: 10px;
-    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
   }
-
-.LogItemTwo{
-    padding-top: 12px;
-    text-align: center;
-    @include NavHeightDesk;
-    border-bottom-right-radius: 25px;
-    border-top-left-radius: 10px;
-  }
-
-.logInput{
-    height: 30px;
-    margin-top: 25px !important;
-    margin-bottom: 15px !important;
-    margin: 0 auto !important;
-    width: 70% !important;
-  }
-
-.logInputLab{
-    height: 20px;
-    margin: 0 auto !important;
-    width: 70% !important;
-    margin-top: 15px !important;
 }
-
-.LogButton{
-    padding-top: 3px;
-    background-color: $primary_blue;
-    height: 35px;
-    color: white;
-    margin: 0 auto !important;
-    width: 50% !important;
-    margin-top: 20px !important;
-    border: none; 
-}
-
-.LogButtonRed{
-    padding-top: 3px;
-    background-color: $color_red;
-    height: 35px;
-    color: white;
-    margin: 0 auto !important;
-    width: 50% !important;
-    margin-top: 20px !important;
-    border: none; 
-}
-
-.LogButton-change{
-    padding-top: 4px;
-    background-color: $primary_blue;
-    height: 35px;
-    color: white;
-    margin: 0 auto !important;
-    width: 50% !important;
-    margin-top: 35px !important;
-    border: none;
-    transition: all ease-in-out 250ms;
-}
-
-.ProfileButton{
-    padding-top: 3px;
-    background-color: white;
-    height: 35px;
-    color: black;
-    margin: 0 auto !important;
-    width: 50% !important;
-    margin-top: 20px !important;
-    border: none;
-    float: left !important;
-}
-
-.profileImgIndc{
-    margin-right: 50px;
-    margin-top: 20px !important;
-    padding: 0 !important;
-    float: left;
-    height: 35px !important;
-    width: 35px !important;
-    border: none !important;
-    @include background_images;
-}
-
-.smallPrint{
-    font-size: 10px !important;
-    margin: 0 auto !important;
-}
-
-@media (max-width: 480px) {
-
-    .LogIn{
-        margin-top: 18vh !important;
-        height: 400px;
-        transition: all ease-in-out 250ms;
-        background-color: white;
-    }
-    
-    .LogIn-change{
-        margin-top: 2vh !important;
-        height: 680px;
-    }
-
-}
-  
