@@ -10,7 +10,6 @@ const LogInInput = forwardRef(({ ...props }, ref) => {
       <input
         type={props.type}
         ref={ref}
-        required
         className={"logInput borderRad"}
       ></input>
     </>

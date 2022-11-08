@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useRef, useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { Last } from "react-bootstrap/esm/PageItem";
 import { useNavigate } from "react-router-dom";
 import CrossIcons from "../../img/crossIcon.svg";
 import ClosedEye from "../../img/icons8-closed-eye-96.png";
@@ -38,6 +39,7 @@ const Patients = () => {
   const [PasswordError, setPasswordError] = useState();
   const ConPassword = useRef();
   const [ConPasswordError, setConPasswordError] = useState();
+  const [ProfileImage, setProfileImage] = useState();
 
   const mailRegex =
     /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -68,43 +70,32 @@ const Patients = () => {
     setActive(!isActive);
   };
 
-  const ModalImage = () => {
-    setopenModal(!openModal);
-  };
-
   const [imageAdded, setImageAdded] = useState(Crossed);
 
   const LogInForm = () => {
-    if (EmailLog.current.value === "") {
+    if (!mailRegex.test(EmailLog.current.value)) {
       setEmailLogError(
-        <ErrorTopLog color={"#FA675C"} error="Email cant be empty" />
+        <ErrorTopLog color={"#FA675C"} error="Please enter a valid email" />
       );
     } else {
-      if (!mailRegex.test(EmailLog.current.value)) {
-        setEmailLogError(
-          <ErrorTopLog color={"#FA675C"} error="Please enter a valid email" />
-        );
-      } else {
-        setEmailLogError();
-      }
+      setEmailLogError();
+    }
+    if (EmailLog.current.value === "") {
+      setEmailLogError();
+    }
+
+    if (!passRegex.test(PasswordLog.current.value)) {
+      console.log("Runnig");
+      setPasswordLogError(
+        <ErrorTopLog
+          color={"#0349C2"}
+          error="Min 8 characters, 1 number, 1 uppercase and one special character"
+        />
+      );
     }
 
     if (PasswordLog.current.value === "") {
-      PasswordLogError(
-        <ErrorTopLog color={"#FA675C"} error="Password cant be empty" />
-      );
-    } else {
-      if (!passRegex.test(PasswordLog.current.value)) {
-        console.log("Runnig");
-        setPasswordLogError(
-          <ErrorTopLog
-            color={"#0349C2"}
-            error="Min 8 characters, 1 number, 1 uppercase and one special character"
-          />
-        );
-      } else {
-        setPasswordLogError();
-      }
+      setPasswordLogError();
     }
   };
 
@@ -114,11 +105,31 @@ const Patients = () => {
         <ErrorTopLog color={"#FA675C"} error="Please enter a valid email" />
       );
     } else {
-      setEmailRegError();
+      setEmailRegError("");
     }
 
     if (EmailReg.current.value === "") {
-      setEmailRegError();
+      setEmailRegError("");
+    }
+
+    if (!passRegex.test(Password.current.value)) {
+      console.log("Runnig");
+      setPasswordError(
+        <ErrorTopLog
+          color={"#0349C2"}
+          error="Min 8 characters, 1 number, 1 uppercase and one special character"
+        />
+      );
+    } else {
+      setPasswordError();
+    }
+
+    if (Password.current.value !== ConPassword.current.value) {
+      console.log("lol");
+    }
+
+    if (Password.current.value === "") {
+      setPasswordError();
     }
   };
 
@@ -145,7 +156,8 @@ const Patients = () => {
   };
 
   const handleSubmitLogin = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
+
     // axios
     //   .post("http://localhost/MedClinic_TermTwo/userLogin.php", logInputs)
     //   .then((response) => {
@@ -164,31 +176,40 @@ const Patients = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // if (inputs.first === "") {
-    //   setNameError(<ErrorTopReg message="Insert First name" />);
-    // } else {
-    //   setNameError();
-    // }
+    let payload = {
+      email: EmailReg.current.value,
+      firstName: FirstName.current.value,
+      lastName: LastName.current.value,
+      age: Age.current.value.toString(),
+      sex: Sex.current.value,
+      contact: Contact.current.value,
+      password: Password.current.value,
+      headReceptionist: "false",
+      rank: 1,
+    };
 
-    //checking if values is equal to nothing to return true or false
+    let result = Object.values(payload).some((o) => o === "");
+    console.log(result);
 
-    // if (result) {
-    //   console.log("There is an error");
-    // } else {
-    //   axios
-    //     .post("http://localhost/MedClinic_TermTwo/registerUser.php", inputs)
-    //     .then(function (response) {
-    //       console.log(response);
+    if (!result) {
+      console.log("Not empty");
 
-    //       if (response.status === 200) {
-    //         sessionStorage.setItem("activeUser", inputs.email);
-    //         sessionStorage.setItem("name", inputs.first);
-    //         navigate("/");
-    //       } else {
-    //         console.log("not working");
-    //       }
-    //     });
-    // }
+      axios
+        .post("http://localhost/MedClinic_TermTwo/registerUser.php", payload)
+        .then(function (response) {
+          console.log(response);
+
+          if (response.status === 200) {
+            sessionStorage.setItem("activeUser", payload.Email);
+            sessionStorage.setItem("name", payload.FirstName);
+            navigate("/");
+          } else {
+            console.log("not working");
+          }
+        });
+    } else {
+      console.log(payload);
+    }
   };
 
   return (
@@ -275,9 +296,11 @@ const Patients = () => {
                 setImageAdded={setImageAdded}
                 setModalOpen={closeModal}
                 openModal={openModal}
+                inputs={ProfileImage}
+                setinputs={setProfileImage}
               />
               <di
-                onClick={ModalImage}
+                onClick={closeModal}
                 className={
                   isActive ? "hide" : "ProfileButton cursor borderRad shadow"
                 }
@@ -332,7 +355,7 @@ const Patients = () => {
               />
 
               <LogInInput
-                type=""
+                type="password"
                 Error={PasswordError}
                 label="Password"
                 ref={Password}
