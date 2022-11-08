@@ -1,223 +1,223 @@
 //universal Controls Mobile
 @mixin NavHeightDesk {
-    height: 65px !important;
-  }
-
-@mixin NavPadDesk {
-    padding-top: 20px;
-  }
-
-@mixin NavHeightMob {
-    height: 50px !important;
-    padding-top: 12px;
-  }
-
-//Navigation
-  .NavItem{
-    cursor: pointer;
-    @include NavPadDesk;
-    @include NavHeightDesk;
-    text-align: center !important;
-    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
-    background-color: white !important;
-  }
-  
-  .NavItemOne{
-    cursor: pointer;
-    @include NavHeightDesk;
-    background-color: #0349C2 !important;
-    border-bottom-right-radius: 25px;
-    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
-  }
-  
-  .NavItemTwo{
-    cursor: pointer;
-    @include NavPadDesk;
-    @include NavHeightDesk;
-    text-align: center !important;
-    border-bottom-left-radius: 25px;
-    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
-    background-color: white !important;
-  }
-  
-  .NavItemFour{
-    @include NavHeightDesk;
-    text-align: center !important;
-    border-bottom-right-radius: 25px;
-    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
-    background-color: white !important;
-  }
-
-  .NavItemFive{
-    cursor: pointer;
-    height: 35px;
-    text-align: center !important;
-    border-bottom-right-radius: 25px;
-    border-bottom-left-radius: 25px;
-    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1);
-    background-color: $color_red;
-    color: white;
-  }
-  
-  .navImg{
-    margin: 0 auto !important;
-    width: 100% !important;
-    height: 100% !important;
-    @include background_images;
-    background-size: 65% !important;
-    background-image: url(../../img/Logo.png);
-  }
-
-  .PImage{
-    margin: 0 auto !important;
-    width: 90% !important;
-    height: 90% !important;
-    background-size: 100%;
-    @include background_images;
-    background-image: url(../../img/DocterImgtemp.jpg);
-    border-radius: 15px;
-  }
-  
-  .UserInfo{
-    padding-top: 6px !important;
-    padding-bottom: 6px !important;
-    @include NavHeightDesk;
-  }
-  
-  .UserInfoName{
-    padding-top: 7px !important;
-    // padding-bottom: 6px !important;
-    overflow-x: auto;
-    @include NavHeightDesk;
-  }
-
-  //Toolbar
-  .Searchbar{
-    float: left;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    font-size: 14px !important;
-    width: 70% !important;
-    height: 40px;
-    padding-left: 2%;
-  }
-
-  .SearchButton{
-    float: left;
-    border-bottom-right-radius: 10px;
-    border-top-right-radius: 10px;
-    font-size: 14px !important;
-    width: 20% !important;
-    height: 40px;
-    border: none;
-    background-color: $color_black
-  }
-
-  .AddApp {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    padding-top: 2%;
-    border: none;
-    float: right;
-    width: 60% !important;
-    height: 40px !important;
-    background-color: white;
-    background-color: $secondary_greenish;
-    font-weight: bold !important;
-    color: white !important;
-  }
-
-  .SearchIcon{
-      background-image: url(../../img/SearchIcon.svg);
-      width: 32px;
-      height: 32px;
-      background-size: cover;
-      border: none !important;
-  }
-
-  .TimeStamp{
-      width: 100px;
-      height: 35px;
-      background-color: white;
-      margin-right: 10px;
-      margin-top: 5px;
-      text-align: center;
-      padding-top: 3px;
-  }
-
-  .PatientCard{
-    height: 45px;
-    padding-top: 6px;
-    padding-left: 10px;
-    width: 100%;
-    background-color: white;
-    border-radius: 5px;
-    margin-bottom: 5px;
-  }
-  
-  //media queries
-  @media (max-width: 480px) {
-.NavItem{
-    @include NavHeightMob;
-  }
-
-.NavItemOne{
-    @include NavHeightMob;
-    }
-
-.NavItemTwo{
-    @include NavHeightMob;
-    text-align: center !important;
-    border-bottom-left-radius: 25px;
-    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1)
+  height: 65px !important;
 }
 
-.NavItemFour{
+@mixin NavPadDesk {
+  padding-top: 20px;
+}
+
+@mixin NavHeightMob {
+  height: 50px !important;
+  padding-top: 12px;
+}
+
+//Navigation
+.NavItem {
+  cursor: pointer;
+  @include NavPadDesk;
+  @include NavHeightDesk;
+  text-align: center !important;
+  box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+  background-color: white !important;
+}
+
+.NavItemOne {
+  cursor: pointer;
+  @include NavHeightDesk;
+  background-color: #0349c2 !important;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
+.NavItemTwo {
+  cursor: pointer;
+  @include NavPadDesk;
+  @include NavHeightDesk;
+  text-align: center !important;
+  border-bottom-left-radius: 25px;
+  box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+  background-color: white !important;
+}
+
+.NavItemFour {
+  @include NavHeightDesk;
+  text-align: center !important;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+  background-color: white !important;
+}
+
+.NavItemFive {
+  cursor: pointer;
+  height: 35px;
+  text-align: center !important;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+  background-color: $color_red;
+  color: white;
+}
+
+.navImg {
+  margin: 0 auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  @include background_images;
+  background-size: 65% !important;
+  background-image: url(../../img/Logo.png);
+}
+
+.PImage {
+  margin: 0 auto !important;
+  width: 90% !important;
+  height: 90% !important;
+  background-size: 100%;
+  @include background_images;
+  background-image: url(../../img/DocterImgtemp.jpg);
+  border-radius: 15px;
+}
+
+.UserInfo {
+  padding-top: 6px !important;
+  padding-bottom: 6px !important;
+  @include NavHeightDesk;
+}
+
+.UserInfoName {
+  padding-top: 20px !important;
+  // padding-bottom: 6px !important;
+  overflow-x: auto;
+  @include NavHeightDesk;
+}
+
+//Toolbar
+.Searchbar {
+  float: left;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  font-size: 14px !important;
+  width: 70% !important;
+  height: 40px;
+  padding-left: 2%;
+}
+
+.SearchButton {
+  float: left;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 14px !important;
+  width: 20% !important;
+  height: 40px;
+  border: none;
+  background-color: $color_black;
+}
+
+.AddApp {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-top: 2%;
+  border: none;
+  float: right;
+  width: 60% !important;
+  height: 40px !important;
+  background-color: white;
+  background-color: $secondary_greenish;
+  font-weight: bold !important;
+  color: white !important;
+}
+
+.SearchIcon {
+  background-image: url(../../img/SearchIcon.svg);
+  width: 32px;
+  height: 32px;
+  background-size: cover;
+  border: none !important;
+}
+
+.TimeStamp {
+  width: 100px;
+  height: 35px;
+  background-color: white;
+  margin-right: 10px;
+  margin-top: 5px;
+  text-align: center;
+  padding-top: 3px;
+}
+
+.PatientCard {
+  height: 45px;
+  padding-top: 6px;
+  padding-left: 10px;
+  width: 100%;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+//media queries
+@media (max-width: 480px) {
+  .NavItem {
+    @include NavHeightMob;
+  }
+
+  .NavItemOne {
+    @include NavHeightMob;
+  }
+
+  .NavItemTwo {
+    @include NavHeightMob;
+    text-align: center !important;
+    border-bottom-left-radius: 25px;
+    box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .NavItemFour {
     border-top: 0.15px solid black;
     @include NavHeightMob;
     padding-top: 0px !important;
     text-align: center !important;
     border-bottom-left-radius: 25px;
-    box-shadow: 0px 3px 2px 0px rgba(0,0,0,0.1)
-}
+    box-shadow: 0px 3px 2px 0px rgba(0, 0, 0, 0.1);
+  }
 
-.navImg{
-      margin: 0 auto !important;
-      width: 100% !important;
-      height: 100% !important;
-      @include background_images;
-      background-image: url(../../img/Logo.png);
-      border-radius: 55px;
-}
+  .navImg {
+    margin: 0 auto !important;
+    width: 100% !important;
+    height: 100% !important;
+    @include background_images;
+    background-image: url(../../img/Logo.png);
+    border-radius: 55px;
+  }
 
-.UserInfo{
-      padding-top: 6px !important;
-      padding-bottom: 6px !important;
-      height: 45px !important;
-}
+  .UserInfo {
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
+    height: 45px !important;
+  }
 
-.UserInfoName{
-      padding-top: 2px !important;
-      padding-bottom: 6px !important;
-      height: 45px !important;
-}
+  .UserInfoName {
+    padding-top: 2px !important;
+    padding-bottom: 6px !important;
+    height: 45px !important;
+  }
 
-h2{
-      font-size: 18px !important;
-}
+  h2 {
+    font-size: 18px !important;
+  }
 
-.Searchbar{
-        float: left;
-        border-bottom-left-radius: 10px;
-        border-top-left-radius: 10px;
-        font-size: 14px !important;
-        width: 80% !important;
-        height: 40px;
-        padding-left: 2%;
-}
+  .Searchbar {
+    float: left;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    font-size: 14px !important;
+    width: 80% !important;
+    height: 40px;
+    padding-left: 2%;
+  }
 
-.SearchButton{
+  .SearchButton {
     float: left;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
@@ -227,11 +227,10 @@ h2{
     border: none;
   }
 
-.AddApp {
-        margin-top: 15px !important;
-        padding-top: 2%;
-        width: 100% !important;
-        background-color: $secondary_greenish;
-}
-    
+  .AddApp {
+    margin-top: 15px !important;
+    padding-top: 2%;
+    width: 100% !important;
+    background-color: $secondary_greenish;
+  }
 }

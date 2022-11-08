@@ -11,16 +11,16 @@ $data = json_decode($request_body);
 $username = $data->username;
 
 if($email === ""){
-    echo "";
+    echo false;
 } else {
     $sql = "SELECT * FROM users WHERE email = '$email';";
     $result = mysqli_query($conn, $sql);
     $resultCheck = mysqli_num_rows($result);
 
     if($resultCheck > 0){
-        echo ("Not Available");
+        echo (false);
     } else {
-        echo ("Available");
+        echo (true);
     }
 }
 

@@ -15,6 +15,7 @@ import LogInInput from "./LogInInput";
 const Patients = () => {
   const [isActive, setActive] = useState(true);
   const [openModal, setopenModal] = useState(false);
+  const [Error, setError] = useState("");
 
   //Log in Refs
   const EmailLog = useRef();
@@ -134,26 +135,7 @@ const Patients = () => {
   };
 
   //email authenticate
-  const authEmail = (e) => {
-    // axios
-    //   .post("http://localhost/MedClinic_TermTwo/authenticateEmail.php", inputs)
-    //   .then(function (response) {
-    //     console.log(response);
-    //     if (response.data === "Available") {
-    //       //add tick
-    //       setEmailIcon(CrossIcons);
-    //       setEmailAvail();
-    //     } else if (response.data === "Not Available") {
-    //       //dont show tick
-    //       setEmailIcon(CrossIcons);
-    //       setEmailAvail(<ErrorTopReg message="Email is not available" />);
-    //     } else if (response.data === "") {
-    //       setEmailIcon();
-    //       setEmailAvail();
-    //       setEmailError();
-    //     }
-    //   });
-  };
+  const authEmail = (e) => {};
 
   const handleSubmitLogin = (e) => {
     e.preventDefault();
@@ -185,6 +167,7 @@ const Patients = () => {
       contact: Contact.current.value,
       password: Password.current.value,
       headReceptionist: "false",
+      ProfileImag: ProfileImage,
       rank: 1,
     };
 
@@ -193,22 +176,39 @@ const Patients = () => {
 
     if (!result) {
       console.log("Not empty");
-
       axios
-        .post("http://localhost/MedClinic_TermTwo/registerUser.php", payload)
+        .post(
+          "http://localhost/MedClinic_TermTwo/authenticateEmail.php",
+          payload
+        )
         .then(function (response) {
           console.log(response);
+          if (response.data === "Available") {
+            axios
+              .post(
+                "http://localhost/MedClinic_TermTwo/registerUser.php",
+                payload
+              )
+              .then(function (response) {
+                console.log(response);
 
-          if (response.status === 200) {
-            sessionStorage.setItem("activeUser", payload.Email);
-            sessionStorage.setItem("name", payload.FirstName);
-            navigate("/");
-          } else {
-            console.log("not working");
+                if (response.status === 200) {
+                  sessionStorage.setItem("activeUser", payload.email);
+                  sessionStorage.setItem("name", payload.firstName);
+                  navigate("/");
+                } else {
+                  console.log("not working");
+                }
+              });
+          } else if (response.data === "Not Available") {
+            console.log("Not Available");
+            setEmailRegError(
+              <ErrorTopLog color={"#FA675C"} error="Email already exists" />
+            );
           }
         });
     } else {
-      console.log(payload);
+      setError("Please fill in all the fields");
     }
   };
 
@@ -398,6 +398,8 @@ const Patients = () => {
               <br />
 
               <br />
+
+              <h3 style={{ color: `#FA675C`, textAlign: `center` }}>{Error}</h3>
 
               <button
                 className={isActive ? "hide" : "LogButton borderRad shadow"}
