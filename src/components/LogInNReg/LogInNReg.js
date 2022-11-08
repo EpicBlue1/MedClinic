@@ -86,7 +86,6 @@ const Patients = () => {
     }
 
     if (!passRegex.test(PasswordLog.current.value)) {
-      console.log("Runnig");
       setPasswordLogError(
         <ErrorTopLog
           color={"#0349C2"}
@@ -126,7 +125,6 @@ const Patients = () => {
     }
 
     if (Password.current.value !== ConPassword.current.value) {
-      console.log("lol");
     }
 
     if (Password.current.value === "") {
@@ -134,25 +132,31 @@ const Patients = () => {
     }
   };
 
-  //email authenticate
-  const authEmail = (e) => {};
-
   const handleSubmitLogin = (e) => {
     e.preventDefault();
 
-    // axios
-    //   .post("http://localhost/MedClinic_TermTwo/userLogin.php", logInputs)
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     //remember me when page refresh (local storage)
-    //     if (response.data === true) {
-    //       sessionStorage.setItem("activeUser", logInputs.email);
-    //       navigate("/");
-    //     } else {
-    //       console.log("not working");
-    //       setIncorrect(<ErrorTopLog />);
-    //     }
-    //   });
+    let payload = {
+      email: EmailLog.current.value,
+      password: PasswordLog.current.value,
+    };
+
+    let result = Object.values(payload).some((o) => o === "");
+    console.log(result);
+
+    axios
+      .post("http://localhost/MedClinic_TermTwo/userLogin.php", payload)
+      .then((response) => {
+        console.log(response);
+        console.log(response.data);
+        //remember me when page refresh (local storage)
+        if (response.status === 200) {
+          sessionStorage.setItem("activeUser", payload.email);
+          sessionStorage.setItem("name", response.data[0].Name);
+          sessionStorage.setItem("Head", response.data[0].HeadReceptionist);
+          navigate("/");
+        } else {
+        }
+      });
   };
 
   const handleSubmit = (e) => {
@@ -190,11 +194,10 @@ const Patients = () => {
                 payload
               )
               .then(function (response) {
-                console.log(response);
-
                 if (response.status === 200) {
                   sessionStorage.setItem("activeUser", payload.email);
                   sessionStorage.setItem("name", payload.firstName);
+                  sessionStorage.setItem("Head", payload.headReceptionist);
                   navigate("/");
                 } else {
                   console.log("not working");
