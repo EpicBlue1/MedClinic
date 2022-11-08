@@ -16,6 +16,7 @@ const Patients = () => {
   const [isActive, setActive] = useState(true);
   const [openModal, setopenModal] = useState(false);
   const [Error, setError] = useState("");
+  const [LogError, setLogError] = useState("");
 
   //Log in Refs
   const EmailLog = useRef();
@@ -143,20 +144,27 @@ const Patients = () => {
     let result = Object.values(payload).some((o) => o === "");
     console.log(result);
 
-    axios
-      .post("http://localhost/MedClinic_TermTwo/userLogin.php", payload)
-      .then((response) => {
-        console.log(response);
-        console.log(response.data);
-        //remember me when page refresh (local storage)
-        if (response.status === 200) {
-          sessionStorage.setItem("activeUser", payload.email);
-          sessionStorage.setItem("name", response.data[0].Name);
-          sessionStorage.setItem("Head", response.data[0].HeadReceptionist);
-          navigate("/");
-        } else {
-        }
-      });
+    if (!result) {
+      axios
+        .post("http://localhost/MedClinic_TermTwo/userLogin.php", payload)
+        .then((response) => {
+          console.log(response);
+          console.log(response.data);
+          //remember me when page refresh (local storage)
+          if (response.status === 200) {
+            sessionStorage.setItem("activeUser", payload.email);
+            sessionStorage.setItem("name", response.data[0].Name);
+            sessionStorage.setItem("Head", response.data[0].HeadReceptionist);
+            navigate("/");
+          } else {
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      setLogError("Please fill in all the fields");
+    }
   };
 
   const handleSubmit = (e) => {
@@ -270,6 +278,10 @@ const Patients = () => {
                 <h4>Forgot Password?</h4>
               </label>
               <br />
+              <h3 style={{ color: `#FA675C`, textAlign: `center` }}>
+                {LogError}
+              </h3>
+
               <br />
               <button
                 className={isActive ? "LogButton borderRad shadow" : "hide"}

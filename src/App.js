@@ -11,6 +11,8 @@ import "./index.scss";
 function App() {
   const navigate = useNavigate();
 
+  const [UserUpdate, setUserUpdate] = useState(true);
+
   const [ActiveUser, setActiveUser] = useState(
     sessionStorage.getItem("activeUser")
   );
@@ -29,15 +31,36 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Dashboard pageName="Appointments" navBar={nav} />}
+          element={
+            <Dashboard
+              setUserUpdate={setUserUpdate}
+              UserUpdate={UserUpdate}
+              pageName="Appointments"
+              navBar={nav}
+            />
+          }
         ></Route>
         <Route
           path="/PatientPage"
-          element={<PatientPage pageName="Appointments" navBar={nav} />}
+          element={
+            <PatientPage
+              setUserUpdate={setUserUpdate}
+              UserUpdate={UserUpdate}
+              pageName="Appointments"
+              navBar={nav}
+            />
+          }
         ></Route>
         <Route
           path="/DoctorsPage"
-          element={<DoctorsPage pageName="Appointments" navBar={nav} />}
+          element={
+            <DoctorsPage
+              setUserUpdate={setUserUpdate}
+              UserUpdate={UserUpdate}
+              pageName="Appointments"
+              navBar={nav}
+            />
+          }
         ></Route>
         <Route
           path="/LoginAndReg"

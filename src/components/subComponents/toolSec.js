@@ -9,6 +9,8 @@ const ToolSec = (props) => {
   const [isActive, setActive] = useState("false");
   const [isActiveUser, setActiveUser] = useState("false");
 
+  const activeUser = sessionStorage.getItem("Head");
+
   const closeModal = () => {
     if (props.addButName === "Add Appointment") {
       setActive(!isActive);
@@ -29,6 +31,8 @@ const ToolSec = (props) => {
           userTypes={props.pageName}
           PropertyOne={props.PropertyOne}
           PropertyTwo={props.PropertyTwo}
+          setUserUpdate={props.setUserUpdate}
+          UserUpdate={props.UserUpdate}
         />
         <AddApp
           Update={props.Update}
@@ -40,7 +44,14 @@ const ToolSec = (props) => {
           <h2>{props.pageName}</h2>
         </Col>
         <Col onClick={closeModal} xs={12} md={3}>
-          <button className="AddApp borderRad shadow">
+          <button
+            className={
+              (props.addButName === "Add Patient" && activeUser === "false") ||
+              (props.addButName === "Add Doctor" && activeUser === "false")
+                ? "hide"
+                : "AddApp borderRad shadow"
+            }
+          >
             <p>{props.addButName}</p>
           </button>
         </Col>

@@ -63,6 +63,7 @@ const AddUser = (props) => {
   console.log(props);
 
   const handleSubmit = (e) => {
+    e.preventDefault();
     console.log(addData);
 
     if (UserType === "Patient") {
@@ -76,6 +77,7 @@ const AddUser = (props) => {
             if (response) {
               props.setActive(!props.Active);
               setrenderPat(true);
+              props.setUserUpdate(!props.UserUpdate);
             }
           });
       }
@@ -91,6 +93,7 @@ const AddUser = (props) => {
 
               props.setActive(!props.Active);
               setrenderPat(true);
+              props.setUserUpdate(!props.UserUpdate);
             }
           });
       }

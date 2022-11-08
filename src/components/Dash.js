@@ -10,6 +10,8 @@ const Dash = (props) => {
 
   const [Update, setUpdate] = useState();
 
+  console.log(props.UserUpdate);
+
   useEffect(() => {
     const userSession = sessionStorage.getItem("activeUser");
     console.log(userSession);
@@ -23,6 +25,8 @@ const Dash = (props) => {
       {props.navBar}
       <Toolbar
         Update={Update}
+        setUserUpdate={props.setUserUpdate}
+        UserUpdate={props.UserUpdate}
         setUpdate={setUpdate}
         addButName="Add Appointment"
         pageName="Appointments Today"
