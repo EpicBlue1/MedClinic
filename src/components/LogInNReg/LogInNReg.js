@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import CrossIcons from "../../img/crossIcon.svg";
@@ -12,23 +12,38 @@ import ErrorTopReg from "../subComponents/Modals/errorTopReg";
 import LogInInput from "./LogInInput";
 
 const Patients = () => {
-  const [isActive, setActive] = useState("false");
-  const [openModal, setopenModal] = useState("false");
-  const [incorrect, setIncorrect] = useState();
+  const [isActive, setActive] = useState(true);
+  const [openModal, setopenModal] = useState(false);
 
   //Log in Refs
   const EmailLog = useRef();
+  const [EmailLogError, setEmailLogError] = useState();
   const PasswordLog = useRef();
+  const [PasswordLogError, setPasswordLogError] = useState();
 
   //Register Refs
   const EmailReg = useRef();
+  const [EmailRegError, setEmailRegError] = useState();
   const FirstName = useRef();
+  const [FirstNameError, setFirstNameError] = useState();
   const LastName = useRef();
+  const [LastNameError, setLastNameError] = useState();
   const Age = useRef();
+  const [AgeError, setAgeError] = useState();
   const Sex = useRef();
+  const [SexError, setSexError] = useState();
   const Contact = useRef();
+  const [ContactError, setContactError] = useState();
   const Password = useRef();
+  const [PasswordError, setPasswordError] = useState();
   const ConPassword = useRef();
+  const [ConPasswordError, setConPasswordError] = useState();
+
+  const mailRegex =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const passRegex = new RegExp(
+    "^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%^&*]{8,}$"
+  );
 
   const closeModal = () => {
     setopenModal(!openModal);
@@ -60,9 +75,51 @@ const Patients = () => {
   const [imageAdded, setImageAdded] = useState(Crossed);
 
   const LogInForm = () => {
-    const mailRegex =
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*(\W|_)).{5,}$/;
+    if (EmailLog.current.value === "") {
+      setEmailLogError(
+        <ErrorTopLog color={"#FA675C"} error="Email cant be empty" />
+      );
+    } else {
+      if (!mailRegex.test(EmailLog.current.value)) {
+        setEmailLogError(
+          <ErrorTopLog color={"#FA675C"} error="Please enter a valid email" />
+        );
+      } else {
+        setEmailLogError();
+      }
+    }
+
+    if (PasswordLog.current.value === "") {
+      PasswordLogError(
+        <ErrorTopLog color={"#FA675C"} error="Password cant be empty" />
+      );
+    } else {
+      if (!passRegex.test(PasswordLog.current.value)) {
+        console.log("Runnig");
+        setPasswordLogError(
+          <ErrorTopLog
+            color={"#0349C2"}
+            error="Min 8 characters, 1 number, 1 uppercase and one special character"
+          />
+        );
+      } else {
+        setPasswordLogError();
+      }
+    }
+  };
+
+  const RegisterForm = () => {
+    if (!mailRegex.test(EmailReg.current.value)) {
+      setEmailRegError(
+        <ErrorTopLog color={"#FA675C"} error="Please enter a valid email" />
+      );
+    } else {
+      setEmailRegError();
+    }
+
+    if (EmailReg.current.value === "") {
+      setEmailRegError();
+    }
   };
 
   //email authenticate
@@ -87,6 +144,23 @@ const Patients = () => {
     //   });
   };
 
+  const handleSubmitLogin = (e) => {
+    // e.preventDefault();
+    // axios
+    //   .post("http://localhost/MedClinic_TermTwo/userLogin.php", logInputs)
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     //remember me when page refresh (local storage)
+    //     if (response.data === true) {
+    //       sessionStorage.setItem("activeUser", logInputs.email);
+    //       navigate("/");
+    //     } else {
+    //       console.log("not working");
+    //       setIncorrect(<ErrorTopLog />);
+    //     }
+    //   });
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -97,7 +171,6 @@ const Patients = () => {
     // }
 
     //checking if values is equal to nothing to return true or false
-    let result = Object.values("").some((o) => o === "");
 
     // if (result) {
     //   console.log("There is an error");
@@ -118,23 +191,6 @@ const Patients = () => {
     // }
   };
 
-  const handleSubmitLogin = (e) => {
-    // e.preventDefault();
-    // axios
-    //   .post("http://localhost/MedClinic_TermTwo/userLogin.php", logInputs)
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     //remember me when page refresh (local storage)
-    //     if (response.data === true) {
-    //       sessionStorage.setItem("activeUser", logInputs.email);
-    //       navigate("/");
-    //     } else {
-    //       console.log("not working");
-    //       setIncorrect(<ErrorTopLog />);
-    //     }
-    //   });
-  };
-
   return (
     <Row className="align-items-center justify-content-center LogInAndRegister">
       <Col
@@ -151,7 +207,12 @@ const Patients = () => {
             <div className="navImg"></div>
           </Col>
           <Col className="LogItemTwo" xs={3} md={10}>
-            <h2 className={isActive ? "show" : "hide"}>Log In</h2>
+            <h2
+              style={{ paddingTop: `15px` }}
+              className={isActive ? "show" : "hide"}
+            >
+              Log In
+            </h2>
             <h2 className={isActive ? "hide" : "show"}>Register</h2>
           </Col>
           <Col md={12}>
@@ -159,33 +220,33 @@ const Patients = () => {
             <form
               onSubmit={handleSubmitLogin}
               onChange={LogInForm}
-              className="row align-items-center justify-content-center"
+              className={
+                isActive
+                  ? "row align-items-center justify-content-center"
+                  : "hide"
+              }
             >
               <LogInInput
+                login={true}
                 type="email"
-                Error={""}
+                Error={EmailLogError}
                 label="Email"
                 ref={EmailLog}
-                isActive={true}
               />
 
               <LogInInput
+                login={true}
                 type="password"
-                Error={""}
+                Error={PasswordLogError}
                 label="Password"
-                ref={EmailLog}
-                isActive={true}
+                ref={PasswordLog}
               />
 
               <label className={isActive ? "logInputLab" : "hide"}>
                 <h4>Forgot Password?</h4>
               </label>
-              <label
-                onClick={toggleRegister}
-                className={isActive ? "logInputLab" : "hide"}
-              >
-                <h4>Don't have an account?</h4>
-              </label>
+              <br />
+              <br />
               <button
                 className={isActive ? "LogButton borderRad shadow" : "hide"}
               >
@@ -193,10 +254,22 @@ const Patients = () => {
                   <b>Log In</b>
                 </p>
               </button>
+              <label
+                onClick={toggleRegister}
+                className={isActive ? "logInputLab" : "hide"}
+              >
+                <h4 className="cursor">Don't have an account?</h4>
+              </label>
             </form>
             <form
+              style={{ paddingBottom: `40px` }}
               onSubmit={handleSubmit}
-              className="row align-items-center justify-content-center"
+              onChange={RegisterForm}
+              className={
+                !isActive
+                  ? "row align-items-center justify-content-center"
+                  : "hide"
+              }
             >
               <ModalAddImage
                 setImageAdded={setImageAdded}
@@ -213,7 +286,9 @@ const Patients = () => {
                   <b>Add Image</b>
                 </p>
               </di>
+
               <img
+                alt="profile"
                 className={isActive ? "hide" : "profileImgIndc"}
                 src={imageAdded}
               ></img>
@@ -221,58 +296,46 @@ const Patients = () => {
               {/* //email */}
               <LogInInput
                 type="email"
-                Error={""}
+                Error={EmailRegError}
                 label="Email"
                 ref={EmailReg}
-                isActive={isActive}
               />
 
               <LogInInput
                 type=""
-                Error={""}
+                Error={FirstNameError}
                 label="FirstName"
                 ref={FirstName}
-                isActive={isActive}
               />
 
               <LogInInput
                 type=""
-                Error={""}
+                Error={LastNameError}
                 label="LastName"
                 ref={LastName}
-                isActive={isActive}
               />
 
               <LogInInput
                 type="number"
-                Error={""}
+                Error={AgeError}
                 label="Age"
                 ref={Age}
-                isActive={isActive}
               />
 
-              <LogInInput
-                type=""
-                Error={""}
-                label="Sex"
-                ref={Sex}
-                isActive={isActive}
-              />
+              <LogInInput type="" Error={SexError} label="Sex" ref={Sex} />
 
               <LogInInput
                 type="number"
-                Error={""}
+                Error={ContactError}
                 label="Contact"
                 ref={Contact}
-                isActive={isActive}
               />
 
               <LogInInput
                 type=""
-                Error={""}
+                Error={PasswordError}
                 label="Password"
                 ref={Password}
-                isActive={isActive}
               />
 
               <div
@@ -289,7 +352,7 @@ const Patients = () => {
               {/* //Confirm Password */}
               <LogInInput
                 type="Password"
-                Error={""}
+                Error={ConPasswordError}
                 label="Confirm Password"
                 ref={ConPassword}
                 isActive={isActive}
@@ -306,14 +369,13 @@ const Patients = () => {
               ></div>
 
               <label className={isActive ? "hide" : "hide"}>
-                <h4>Forgot Password?</h4>
+                <h4 className="cursor">Forgot Password?</h4>
               </label>
-              <label
-                onClick={toggleRegister}
-                className={isActive ? "hide" : "logInputLab"}
-              >
-                <h4>Already have an account</h4>
-              </label>
+              <br />
+              <br />
+
+              <br />
+
               <button
                 className={isActive ? "hide" : "LogButton borderRad shadow"}
               >
@@ -321,6 +383,12 @@ const Patients = () => {
                   <b>Register</b>
                 </p>
               </button>
+              <label
+                onClick={toggleRegister}
+                className={isActive ? "hide" : "logInputLab"}
+              >
+                <h4 className="cursor">Already have an account?</h4>
+              </label>
             </form>
           </Col>
         </Row>

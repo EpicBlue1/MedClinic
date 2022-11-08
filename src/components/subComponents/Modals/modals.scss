@@ -1,244 +1,245 @@
-.errorTop{
-    width: 57% !important;
-    height: 35px;
-    background-color: $color_red;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    color: white !important;
+.errorTop {
+  width: 57% !important;
+  height: 30px;
+  padding-top: 2px;
+  //   background-color: $color_red;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  color: white !important;
 }
 
-.errorElement{
-    margin-top: 2px;
-    float: left;
-    font-size: 14px !important;
-    width: 90% !important;
-    height: 10px !important;
-    background-size: cover;
-    background-position: center;
+.errorElement {
+  margin-top: 2px;
+  float: left;
+  font-size: 14px !important;
+  width: 90% !important;
+  height: 10px !important;
+  background-size: cover;
+  background-position: center;
 }
 
-.errorSubElement{
-    margin-top: 2px;
-    float: right;
-    width: 12px !important;
-    height: 12px !important;
-    @include background_images;
-    position: absolute;
-    top: -20;
+.errorSubElement {
+  margin-top: 2px;
+  float: right;
+  width: 12px !important;
+  height: 12px !important;
+  @include background_images;
+  position: absolute;
+  top: -20;
 }
 
-.icon{
-    margin-right: 10px;
-    float: left;
-    width: 35px !important;
-    height: 35px !important;
-    // padding: 10px !important;
-    // background-image: url(../../img/icons8-closed-eye-96.png);
-    box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.05);
-    background-color: white !important;
-    cursor: pointer;  
+.icon {
+  margin-right: 10px;
+  float: left;
+  width: 35px !important;
+  height: 35px !important;
+  // padding: 10px !important;
+  // background-image: url(../../img/icons8-closed-eye-96.png);
+  box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.05);
+  background-color: white !important;
+  cursor: pointer;
 }
 
 //add profile image
-.AddProfile{
-    margin-top: -185px !important;
-    position: fixed;
-    width: 102vh;
-    height: 100vh;
-    background-color: #2b2b2b81 !important;
+.AddProfile {
+  margin-top: -185px !important;
+  position: fixed;
+  width: 102vh;
+  height: 100vh;
+  background-color: #2b2b2b81 !important;
 }
 
-.imageArea{
-    margin: 0 auto !important;
-    margin-top: 10% !important;
-    padding: 25px !important;
-    text-align: center;
-    width: 50%;
-    height: 410px;
-    background-color: white !important;
+.imageArea {
+  margin: 0 auto !important;
+  margin-top: 10% !important;
+  padding: 25px !important;
+  text-align: center;
+  width: 50%;
+  height: 410px;
+  background-color: white !important;
 }
 
-.addImageButton{
-    border-radius: 10px;
+.addImageButton {
+  border-radius: 10px;
 }
 
-#profileimg{
-    margin: 0 auto !important;
-    margin-bottom: 40px !important;
-    width: 100px;
-    height: 100px;
-    border-color: aqua !important;
-    border: 2px solid black !important;
-    @include background_images;
+#profileimg {
+  margin: 0 auto !important;
+  margin-bottom: 40px !important;
+  width: 100px;
+  height: 100px;
+  border-color: aqua !important;
+  border: 2px solid black !important;
+  @include background_images;
 }
 
-.profile_img img{
-    margin: 0 auto !important;
-    margin-bottom: 40px !important;
-    width: 100px;
-    height: 100px;
-    border-color: aqua !important;
-    border: 2px solid black !important;
-    @include background_images;
+.profile_img img {
+  margin: 0 auto !important;
+  margin-bottom: 40px !important;
+  width: 100px;
+  height: 100px;
+  border-color: aqua !important;
+  border: 2px solid black !important;
+  @include background_images;
 }
 
-.UpdateUser{
-    text-align: center;
-    margin: 0 auto !important;
-    margin-left: 5% !important;
-    margin-top: -5% !important;
-    padding: 25px;
-    position: absolute !important;
-    width: 30%;
-    height: max-content;
-    background-color: white !important;
-    border: 4px solid $secondary_greenish;
-    @include shadow;
-    margin-bottom: 20px !important;
+.UpdateUser {
+  text-align: center;
+  margin: 0 auto !important;
+  margin-left: 5% !important;
+  margin-top: -5% !important;
+  padding: 25px;
+  position: absolute !important;
+  width: 30%;
+  height: max-content;
+  background-color: white !important;
+  border: 4px solid $secondary_greenish;
+  @include shadow;
+  margin-bottom: 20px !important;
 }
 
-.UpdateApp{
+.UpdateApp {
+  text-align: center;
+  margin: 0 auto !important;
+  margin-left: 5% !important;
+  margin-top: -12% !important;
+  padding: 25px;
+  position: fixed !important;
+  width: 30%;
+  height: 460px;
+  background-color: white !important;
+  border: 4px solid $secondary_greenish;
+  @include shadow;
+  margin-bottom: 20px !important;
+  z-index: 999;
+}
+
+.AddAppTwo {
+  text-align: center;
+  margin: 0 auto !important;
+  margin-left: 33% !important;
+  padding: 25px;
+  position: fixed !important;
+  width: 30% !important;
+  height: 480px;
+  background-color: white !important;
+  border: 4px solid $secondary_greenish;
+  @include shadow;
+  margin-bottom: 20px !important;
+  z-index: 999;
+}
+
+.UpdateUser {
+  text-align: center;
+  top: 50% !important;
+  left: 50% !important;
+  margin-top: -240px !important; /* Negative half of height. */
+  margin-left: -200px !important; /* Negative half of width. */
+  padding: 25px;
+  position: fixed !important;
+  width: 30% !important;
+  height: 540px;
+  background-color: white !important;
+  border: 4px solid $secondary_greenish;
+  @include shadow;
+  margin-bottom: 20px !important;
+  z-index: 999;
+}
+
+.AddInput {
+  @include paragraph;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.AddUserButton {
+  padding-top: 3px;
+  background-color: $primary_blue;
+  height: 35px;
+  color: white;
+  margin: 0 auto !important;
+  width: 50% !important;
+  margin-top: 20px !important;
+  border: none;
+}
+
+.RemoveBut {
+  margin-right: 15px !important;
+  width: 10%;
+  height: 34px;
+  border: none;
+  float: right;
+  background-image: url(../../../img/editBut.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: white;
+}
+
+.inputUpdate {
+  width: 60%;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .UpdateApp {
     text-align: center;
     margin: 0 auto !important;
     margin-left: 5% !important;
     margin-top: -12% !important;
     padding: 25px;
     position: fixed !important;
-    width: 30%;
+    width: 70% !important;
     height: 460px;
     background-color: white !important;
     border: 4px solid $secondary_greenish;
     @include shadow;
     margin-bottom: 20px !important;
     z-index: 999;
-}
+  }
 
-.AddAppTwo{
+  .AddAppTwo {
     text-align: center;
     margin: 0 auto !important;
-    margin-left: 33% !important;
+    margin-left: 13% !important;
     padding: 25px;
     position: fixed !important;
-    width: 30% !important;
+    width: 70% !important;
     height: 480px;
     background-color: white !important;
     border: 4px solid $secondary_greenish;
     @include shadow;
     margin-bottom: 20px !important;
     z-index: 999;
-}
+  }
 
-.UpdateUser{
+  .UpdateUser {
+    position: fixed !important;
     text-align: center;
+    margin: 0 auto !important;
+    padding: 25px;
     top: 50% !important;
     left: 50% !important;
-    margin-top: -240px !important; /* Negative half of height. */
-    margin-left: -200px !important; /* Negative half of width. */
-    padding: 25px;
-    position: fixed !important;
-    width: 30% !important;
-    height: 540px;
+    margin-top: -150px !important; /* Negative half of height. */
+    margin-left: -150px !important; /* Negative half of width. */
+    width: 80% !important;
+    height: max-content;
     background-color: white !important;
     border: 4px solid $secondary_greenish;
     @include shadow;
     margin-bottom: 20px !important;
-    z-index: 999;
-}
+  }
 
-.AddInput{
-    @include paragraph;
-    width: 80%;
-    margin-bottom: 10px;
-}
-
-.AddUserButton{
-    padding-top: 3px;
-    background-color: $primary_blue;
-    height: 35px;
-    color: white;
+  .imageArea {
     margin: 0 auto !important;
-    width: 50% !important;
-    margin-top: 20px !important;
-    border: none; 
-}
-  
-.RemoveBut{
-    margin-right: 15px !important;
-    width: 10%;
-    height: 34px;
-    border: none;
-    float: right;
-    background-image: url(../../../img/editBut.png);
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: white;
-}
-
-.inputUpdate{
-    width: 60%;
-    margin-bottom: 20px;
-    border-radius: 10px;
+    margin-top: 10% !important;
+    padding: 25px !important;
     text-align: center;
-}
-
-@media (max-width: 480px) {
-    .UpdateApp{
-        text-align: center;
-        margin: 0 auto !important;
-        margin-left: 5% !important;
-        margin-top: -12% !important;
-        padding: 25px;
-        position: fixed !important;
-        width: 70% !important;
-        height: 460px;
-        background-color: white !important;
-        border: 4px solid $secondary_greenish;
-        @include shadow;
-        margin-bottom: 20px !important;
-        z-index: 999;
-    }
-
-    .AddAppTwo{
-        text-align: center;
-        margin: 0 auto !important;
-        margin-left: 13% !important;
-        padding: 25px;
-        position: fixed !important;
-        width: 70% !important;
-        height: 480px;
-        background-color: white !important;
-        border: 4px solid $secondary_greenish;
-        @include shadow;
-        margin-bottom: 20px !important;
-        z-index: 999;
-    }
-
-    .UpdateUser{
-        position: fixed !important;
-        text-align: center;
-        margin: 0 auto !important;
-        padding: 25px;
-        top: 50% !important;
-        left: 50% !important;
-        margin-top: -150px !important; /* Negative half of height. */
-        margin-left: -150px !important; /* Negative half of width. */
-        width: 80% !important;
-        height: max-content;
-        background-color: white !important;
-        border: 4px solid $secondary_greenish;
-        @include shadow;
-        margin-bottom: 20px !important;
-    }
-
-    .imageArea{
-        margin: 0 auto !important;
-        margin-top: 10% !important;
-        padding: 25px !important;
-        text-align: center;
-        Margin-top: 100px !important;
-        width: 75% !important;
-        height: 410px;
-        background-color: white !important;
-    }
+    margin-top: 100px !important;
+    width: 75% !important;
+    height: 410px;
+    background-color: white !important;
+  }
 }
