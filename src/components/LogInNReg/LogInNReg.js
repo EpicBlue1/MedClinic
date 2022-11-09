@@ -93,6 +93,8 @@ const Patients = () => {
           error="Min 8 characters, 1 number, 1 uppercase and one special character"
         />
       );
+    } else {
+      setPasswordLogError();
     }
 
     if (PasswordLog.current.value === "") {
@@ -126,6 +128,11 @@ const Patients = () => {
     }
 
     if (Password.current.value !== ConPassword.current.value) {
+      setConPasswordError(
+        <ErrorTopLog color={"#0349C2"} error="Passwords Need to match" />
+      );
+    } else {
+      setConPasswordError();
     }
 
     if (Password.current.value === "") {
@@ -142,7 +149,6 @@ const Patients = () => {
     };
 
     let result = Object.values(payload).some((o) => o === "");
-    console.log(result);
 
     if (!result) {
       axios
@@ -184,7 +190,6 @@ const Patients = () => {
     };
 
     let result = Object.values(payload).some((o) => o === "");
-    console.log(result);
 
     if (!result) {
       console.log("Not empty");
@@ -376,17 +381,6 @@ const Patients = () => {
                 ref={Password}
               />
 
-              <div
-                onClick={ShowHides}
-                style={{
-                  backgroundImage: "url(" + Icon + ")",
-                  backgroundSize: "15px 15px",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                }}
-                className={isActive ? "hide" : "icon"}
-              ></div>
-
               {/* //Confirm Password */}
               <LogInInput
                 type="Password"
@@ -395,16 +389,6 @@ const Patients = () => {
                 ref={ConPassword}
                 isActive={isActive}
               />
-              <div
-                onClick={ShowHides}
-                style={{
-                  backgroundImage: "url(" + Icon + ")",
-                  backgroundSize: "15px 15px",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
-                }}
-                className={isActive ? "hide" : "icon"}
-              ></div>
 
               <label className={isActive ? "hide" : "hide"}>
                 <h4 className="cursor">Forgot Password?</h4>
